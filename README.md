@@ -1,6 +1,6 @@
-# Claude Code Workflow
-
-**How a filmmaker uses Claude Code as a daily creative and technical partner.**
+<p align="center">
+  <img src="assets/header.svg" alt="Claude Code Workflow" width="100%"/>
+</p>
 
 Not a developer tutorial. Not a prompt engineering guide. This is a real, opinionated setup built by an artist who uses Claude Code every day for filmmaking, creative tools, and vibe coding.
 
