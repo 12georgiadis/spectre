@@ -24,7 +24,7 @@ How the agent is configured, and why.
 | [Settings explained](config/settings-explained.md) | Every `settings.json` choice annotated: privacy (telemetry off), deny rules (minimal: only block the irreversible), statusline, agent teams, extended thinking |
 
 **Key decisions:**
-- Deny rules are minimal by design. Block `mkfs`, `dd`, `curl|bash`, force push, credential reads. Nothing else. The `claude` vs `clauded` (dangerously-skip-permissions) separation handles daily control.
+- Deny rules are minimal by design: only block irreversible commands. The `claude` (interactive permissions) vs `clauded` (bypass) separation handles daily control.
 - Telemetry fully disabled (Trail of Bits approach).
 - Extended thinking always on.
 - Conversation history kept 365 days instead of 30.

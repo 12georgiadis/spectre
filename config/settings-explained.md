@@ -19,22 +19,11 @@ Inspiré de Trail of Bits. Claude Code fonctionne pareil, mais n'envoie plus de 
 Active les équipes d'agents (subagents en parallèle).
 
 ## Deny rules (minimalistes)
-```json
-"permissions": {
-  "deny": [
-    "Bash(mkfs *)", "Bash(dd *)",
-    "Bash(curl *|bash*)", "Bash(wget *|bash*)",
-    "Bash(git push --force*)", "Bash(git push *--force*)",
-    "Read(~/.ssh/**)", "Read(~/.gnupg/**)",
-    "Read(~/.git-credentials)", "Read(~/Library/Keychains/**)"
-  ]
-}
-```
 
 ### Philosophie
-On bloque seulement les commandes **irréversibles** qu'aucun agent ne devrait jamais exécuter, même en mode bypass (`clauded`). Pas de blocage sur `rm -rf` ou `Edit ~/.zshrc` car ce sont des opérations courantes en dev.
+On bloque seulement les commandes **irréversibles** qu'aucun agent ne devrait jamais exécuter : formatage disque, exécution de scripts distants non vérifiés, force push, lecture de credentials système.
 
-La séparation `claude` (avec permissions) vs `clauded` (bypass) gère déjà le controle pour les commandes courantes.
+Tout le reste est géré par la séparation `claude` (avec permissions interactives) vs `clauded` (bypass) pour le controle quotidien.
 
 ## Statusline
 ```json
