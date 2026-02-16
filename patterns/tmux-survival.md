@@ -2,6 +2,15 @@
 
 How to never lose a Claude Code session again.
 
+## Machines
+
+| Machine | Tailscale IP | Username | Role |
+|---------|-------------|----------|------|
+| **Mac Mini M4** | `100.84.223.88` | `ismaelstudiominim4` | Serveur principal (toujours allume) |
+| MacBook Air M3 | `100.118.137.41` | `ismaeljoffroychandoutis` | Mobile / backup |
+| iPhone 15 Pro Max | `100.68.238.125` | - | Client Blink |
+| iPad | `100.88.69.47` | - | Client Blink |
+
 ## The golden rule
 
 **Never launch `claude` without tmux.**
@@ -15,33 +24,55 @@ claude
 claude   # naked, no safety net
 ```
 
-## Daily workflow
-
-### On the Mac (iTerm2)
-
-```bash
-# Start your day - create a session
-tmux new -s miami
-
-# Launch Claude Code inside
-claude
-
-# Need another project? Open a new tmux window
-# Ctrl+B c = new window
-# Then launch another claude inside
-```
+## Connect from anywhere
 
 ### From iPhone/iPad (Blink + Tailscale)
 
 ```bash
-# 1. Connect
+# Connect to Mac Mini (main)
+mosh ismaelstudiominim4@100.84.223.88
+
+# Or connect to MacBook Air (mobile)
 mosh ismaeljoffroychandoutis@100.118.137.41
 
-# 2. Reattach to everything
-tmux attach -t miami
+# Then reattach
+tmux attach
 ```
 
-That's it. Everything is exactly where you left it.
+### From MacBook Air to Mac Mini
+
+```bash
+# SSH or mosh
+mosh ismaelstudiominim4@100.84.223.88
+tmux attach
+```
+
+### From Mac Mini to MacBook Air
+
+```bash
+mosh ismaeljoffroychandoutis@100.118.137.41
+tmux attach
+```
+
+## Daily workflow
+
+```bash
+# 1. On the Mac Mini, start a tmux session
+tmux new -s work
+
+# 2. Launch Claude Code inside
+claude
+
+# 3. Need another project? New tmux window
+# Ctrl+B c = new window, Ctrl+B , = rename it
+
+# 4. From phone: connect and reattach
+# mosh ismaelstudiominim4@100.84.223.88
+# tmux attach
+
+# 5. Done for now? Detach (don't kill!)
+# Ctrl+B d
+```
 
 ## When things go wrong
 
@@ -53,23 +84,27 @@ tmux dies too. But Claude Code conversations are saved. Recovery:
 # See all saved conversations
 claude conversations list
 
-# Resume any conversation
-tmux new -s nom
+# Resume any conversation inside tmux
+tmux new -s work
 claude --resume <conversation-id>
-```
 
-### iTerm2 crashes (but Mac is still on)
-
-tmux survives. Just reopen iTerm2:
-
-```bash
-tmux attach
-# Everything is still running
+# Or use the recovery script
+bash ~/resume-sessions.sh
+tmux attach -t claude-hub
 ```
 
 ### Blink disconnects / iPhone locks
 
 tmux survives. Just reconnect:
+
+```bash
+mosh ismaelstudiominim4@100.84.223.88
+tmux attach
+```
+
+### Can't reach Mac Mini?
+
+Try MacBook Air as fallback:
 
 ```bash
 mosh ismaeljoffroychandoutis@100.118.137.41
@@ -87,6 +122,7 @@ tmux attach
 | New window | `Ctrl+B c` |
 | Rename window | `Ctrl+B ,` |
 | **Detach** (leave without killing) | `Ctrl+B d` |
+| Switch between sessions | `Ctrl+B s` |
 | Split horizontal | `Ctrl+B "` |
 | Split vertical | `Ctrl+B %` |
 | Switch pane | `Ctrl+B arrow` |
@@ -98,30 +134,18 @@ On Blink keyboard: `Ctrl` = the `^` key (top left).
 One tmux session with named windows works best:
 
 ```bash
-# Create session with first project
 tmux new -s work -n miami
-
-# Add more windows
-Ctrl+B c    # then rename with Ctrl+B ,
+# Ctrl+B c  then  Ctrl+B ,  to add and rename windows
 ```
 
-Or multiple sessions for big separation:
+Or separate sessions for big contexts:
 
 ```bash
 tmux new -s film
 tmux new -s compta
-tmux new -s dev
-
-# List all sessions
-tmux ls
-
-# Switch between sessions
-Ctrl+B s
+tmux ls              # list all
+Ctrl+B s             # switch between sessions
 ```
-
-## Recovery script
-
-If the Mac reboots, run `~/resume-sessions.sh` to recreate all windows from saved conversations. Keep this script updated.
 
 ## Discipline
 
