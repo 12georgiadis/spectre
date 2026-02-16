@@ -76,6 +76,15 @@ claude
 
 ## When things go wrong
 
+### Closed iTerm / terminal (but Mac still running)
+
+tmux survives! It runs in the background. Just reopen iTerm and:
+
+```bash
+tmux attach
+# Then launch claude in the window you need
+```
+
 ### Battery dies / Mac reboots
 
 tmux dies too. But Claude Code conversations are saved. Recovery:
