@@ -31,11 +31,18 @@ How the agent is configured, and why.
 
 ### Patterns
 
-Reusable analysis and decision frameworks.
+Reusable analysis, decision frameworks, and automation scripts.
 
 | File | What it covers |
 |------|---------------|
-| [Max Plan vs API](patterns/max-vs-api.md) | When Claude Code Max ($100/mo) becomes cheaper than API pay-per-use. Breakpoint analysis with real numbers from our usage. Short answer: as soon as you use Opus regularly + parallel sessions. |
+| [Max Plan vs API](patterns/max-vs-api.md) | When Claude Code Max ($100/mo) becomes cheaper than API pay-per-use. Breakpoint analysis with real numbers. |
+| [tmux Survival Guide](patterns/tmux-survival.md) | Never lose a session. Multi-machine setup, remote access, recovery after reboot, navigation cheatsheet. |
+| [Telegram Bridge](patterns/telegram-bridge.md) | Control Claude Code from your phone via Telegram. Bidirectional: text, voice, images, files. Multi-window support. |
+| [Notifications](patterns/notifications.md) | Get notified when tasks finish. Sound (Zelda!) + push notifications (Pushover/Telegram/native macOS). |
+| [Statusline](patterns/statusline.md) | Two-line status bar: model, project, context usage progress bar (color-coded), cost, duration, cache %, lines changed. |
+| [Scripts Toolkit](patterns/scripts-toolkit.md) | All automation scripts: bootstrap, dashboard, heartbeat, cost calculator, memory search, sync, nosleep, resume sessions. |
+| [Memory System](patterns/memory-system.md) | Persistent memory across sessions. Daily logs, backlog tracking, Spotlight search. Claude Code remembers what you did yesterday. |
+| [Resume Sessions](patterns/resume-sessions.md) | Restore all tmux windows after a reboot with `claude --resume`. One script, priority-ordered, named windows. |
 
 ### Journal
 
