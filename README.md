@@ -43,6 +43,7 @@ Reusable analysis, decision frameworks, and automation scripts.
 | [Scripts Toolkit](patterns/scripts-toolkit.md) | All automation scripts: bootstrap, dashboard, heartbeat, cost calculator, memory search, sync, nosleep, resume sessions. |
 | [Memory System](patterns/memory-system.md) | Persistent memory across sessions. Daily logs, backlog tracking, Spotlight search. Claude Code remembers what you did yesterday. |
 | [Resume Sessions](patterns/resume-sessions.md) | Restore all tmux windows after a reboot with `claude --resume`. One script, priority-ordered, named windows. |
+| [Cross-Platform](patterns/cross-platform.md) | How everything works on macOS, Linux, and Windows (WSL2). Platform abstraction layer, bootstrap, and WSL2 setup guide. |
 
 ### Journal
 
