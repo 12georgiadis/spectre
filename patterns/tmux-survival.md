@@ -2,14 +2,13 @@
 
 How to never lose a Claude Code session again.
 
-## Machines
+## Setup
 
-| Machine | Tailscale IP | Username | Role |
-|---------|-------------|----------|------|
-| **Mac Mini M4** | `100.84.223.88` | `ismaelstudiominim4` | Serveur principal (toujours allume) |
-| MacBook Air M3 | `100.118.137.41` | `ismaeljoffroychandoutis` | Mobile / backup |
-| iPhone 15 Pro Max | `100.68.238.125` | - | Client Blink |
-| iPad | `100.88.69.47` | - | Client Blink |
+You need:
+- A **server Mac** (always on, e.g. Mac Mini) running Claude Code inside tmux
+- A **mobile device** (iPhone/iPad with [Blink Shell](https://blink.sh)) or another Mac
+- [Tailscale](https://tailscale.com) on all devices for secure networking
+- [mosh](https://mosh.org) on the server (`brew install mosh`)
 
 ## The golden rule
 
@@ -29,36 +28,34 @@ claude   # naked, no safety net
 ### From iPhone/iPad (Blink + Tailscale)
 
 ```bash
-# Connect to Mac Mini (main)
-# --server flag required because Homebrew PATH not in SSH env
-mosh --server=/opt/homebrew/bin/mosh-server ismaelstudiominim4@100.84.223.88
+# Connect to your server Mac
+# --server flag required because Homebrew PATH is not in SSH env
+mosh --server=/opt/homebrew/bin/mosh-server user@<tailscale-ip>
 
-# Or connect to MacBook Air (mobile)
-mosh ismaeljoffroychandoutis@100.118.137.41
+# Fallback if mosh doesn't work
+ssh user@<tailscale-ip>
 
-# Then reattach
+# Then reattach to your tmux session
 tmux attach
 ```
 
-### From MacBook Air to Mac Mini
+### Between Macs
 
 ```bash
-# SSH or mosh
-mosh ismaelstudiominim4@100.84.223.88
+mosh user@<tailscale-ip>
 tmux attach
 ```
 
-### From Mac Mini to MacBook Air
+### SSH vs Mosh?
 
-```bash
-mosh ismaeljoffroychandoutis@100.118.137.41
-tmux attach
-```
+- **Mosh**: auto-reconnects if Wi-Fi drops or iPad sleeps. Preferred.
+- **SSH**: fallback if mosh doesn't work. Session dies if connection drops.
+- Either way, tmux protects your running sessions.
 
 ## Daily workflow
 
 ```bash
-# 1. On the Mac Mini, start a tmux session
+# 1. On your server Mac, start a tmux session
 tmux new -s work
 
 # 2. Launch Claude Code inside
@@ -68,7 +65,7 @@ claude
 # Ctrl+B c = new window, Ctrl+B , = rename it
 
 # 4. From phone: connect and reattach
-# mosh ismaelstudiominim4@100.84.223.88
+# mosh --server=/opt/homebrew/bin/mosh-server user@<ip>
 # tmux attach
 
 # 5. Done for now? Detach (don't kill!)
@@ -83,7 +80,6 @@ tmux survives! It runs in the background. Just reopen iTerm and:
 
 ```bash
 tmux attach
-# Then launch claude in the window you need
 ```
 
 ### Battery dies / Mac reboots
@@ -97,10 +93,6 @@ claude conversations list
 # Resume any conversation inside tmux
 tmux new -s work
 claude --resume <conversation-id>
-
-# Or use the recovery script
-bash ~/resume-sessions.sh
-tmux attach -t claude-hub
 ```
 
 ### Blink disconnects / iPhone locks
@@ -108,16 +100,7 @@ tmux attach -t claude-hub
 tmux survives. Just reconnect:
 
 ```bash
-mosh ismaelstudiominim4@100.84.223.88
-tmux attach
-```
-
-### Can't reach Mac Mini?
-
-Try MacBook Air as fallback:
-
-```bash
-mosh ismaeljoffroychandoutis@100.118.137.41
+mosh --server=/opt/homebrew/bin/mosh-server user@<ip>
 tmux attach
 ```
 
@@ -144,7 +127,7 @@ On Blink keyboard: `Ctrl` = the `^` key (top left).
 One tmux session with named windows works best:
 
 ```bash
-tmux new -s work -n miami
+tmux new -s work -n project-a
 # Ctrl+B c  then  Ctrl+B ,  to add and rename windows
 ```
 
@@ -164,7 +147,7 @@ Ctrl+B s             # switch between sessions
 The touchscreen sends mouse events that tmux interprets as input. Fix:
 
 ```bash
-# On the Mac (Mini or Air), add to ~/.tmux.conf:
+# Add to ~/.tmux.conf on your server Mac:
 echo 'set -g mouse off' >> ~/.tmux.conf
 
 # Apply immediately without restart:
@@ -191,19 +174,29 @@ Keyboard not reaching the TUI. Fix:
 ### OAuth auth from iPad (no browser)
 
 Claude Code auth requires a browser on the Mac. Options:
-- Use AnyDesk from iPad to control Safari on the Mini
+- Use a remote desktop app (AnyDesk, Jump Desktop, etc.) to control Safari on your server
 - Copy credentials from another authenticated Mac:
   ```bash
-  scp ~/.claude/.credentials.json ismaelstudiominim4@100.84.223.88:~/.claude/.credentials.json
+  scp ~/.claude/.credentials.json user@<server-ip>:~/.claude/.credentials.json
   ```
 - Auth stays valid as long as the session runs
 
 ### mosh: NoMoshServerArgs error
 
-Homebrew's mosh-server is not in the default SSH PATH. Fix:
+Homebrew's mosh-server is not in the default SSH PATH on macOS. Fix:
 ```bash
 mosh --server=/opt/homebrew/bin/mosh-server user@host
 ```
+
+### Enabling Screen Sharing (VNC) for remote desktop access
+
+If you need GUI access to your server Mac (for OAuth, AnyDesk setup, etc.):
+```bash
+sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart \
+  -activate -configure -access -on -restart -agent -privs -all
+```
+
+Then connect via any VNC client or Jump Desktop using the Tailscale IP.
 
 ## Discipline
 
