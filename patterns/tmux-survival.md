@@ -30,7 +30,8 @@ claude   # naked, no safety net
 
 ```bash
 # Connect to Mac Mini (main)
-mosh ismaelstudiominim4@100.84.223.88
+# --server flag required because Homebrew PATH not in SSH env
+mosh --server=/opt/homebrew/bin/mosh-server ismaelstudiominim4@100.84.223.88
 
 # Or connect to MacBook Air (mobile)
 mosh ismaeljoffroychandoutis@100.118.137.41
@@ -154,6 +155,54 @@ tmux new -s film
 tmux new -s compta
 tmux ls              # list all
 Ctrl+B s             # switch between sessions
+```
+
+## Troubleshooting Blink (iPhone/iPad)
+
+### Mouse/touch sends garbage characters (numbers, escape codes)
+
+The touchscreen sends mouse events that tmux interprets as input. Fix:
+
+```bash
+# On the Mac (Mini or Air), add to ~/.tmux.conf:
+echo 'set -g mouse off' >> ~/.tmux.conf
+
+# Apply immediately without restart:
+tmux set-option -g mouse off
+```
+
+Also: disable terminal escape sequences in the active session:
+```bash
+printf '\033[?1000l\033[?1002l\033[?1003l\033[?1006l'
+```
+
+### Vertical text / broken display
+
+Terminal size mismatch between Blink and tmux. Fix:
+1. `Ctrl+B d` (detach)
+2. `tmux attach` (reattach resets dimensions)
+
+### Can't type in Claude Code TUI
+
+Keyboard not reaching the TUI. Fix:
+1. `Ctrl+C` to exit Claude Code
+2. Relaunch `claude` or `clauded`
+
+### OAuth auth from iPad (no browser)
+
+Claude Code auth requires a browser on the Mac. Options:
+- Use AnyDesk from iPad to control Safari on the Mini
+- Copy credentials from another authenticated Mac:
+  ```bash
+  scp ~/.claude/.credentials.json ismaelstudiominim4@100.84.223.88:~/.claude/.credentials.json
+  ```
+- Auth stays valid as long as the session runs
+
+### mosh: NoMoshServerArgs error
+
+Homebrew's mosh-server is not in the default SSH PATH. Fix:
+```bash
+mosh --server=/opt/homebrew/bin/mosh-server user@host
 ```
 
 ## Discipline
