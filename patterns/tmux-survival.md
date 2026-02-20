@@ -165,6 +165,24 @@ Terminal size mismatch between Blink and tmux. Fix:
 1. `Ctrl+B d` (detach)
 2. `tmux attach` (reattach resets dimensions)
 
+### iTerm2 profile: do NOT use -CC flag
+
+The `-CC` flag enables native iTerm2/tmux integration (tmux windows appear as iTerm2 tabs). Sounds useful, but it breaks everything:
+- `Ctrl+B n/p` stop working for window navigation
+- `Cmd+1/2/3` stop working
+- Every new tab triggers an annoying popup
+
+**Use this** in your iTerm2 profile command:
+```
+/opt/homebrew/bin/tmux attach -t your-session
+```
+**Not this:**
+```
+/opt/homebrew/bin/tmux -CC attach -t your-session
+```
+
+Note: inside Claude Code, `Cmd+←/→` are always captured for cursor movement — use `Ctrl+B n/p` instead.
+
 ### Can't type in Claude Code TUI
 
 Keyboard not reaching the TUI. Fix:
