@@ -84,7 +84,7 @@ Articles and threads that shaped the setup.
 ## Stack
 
 ### Claude Code
-- **Max plan ($200/mo)** — Opus 4 + Sonnet + Haiku, unlimited usage (20x)
+- **Max plan ($200/mo)** — Opus 4.6 + Sonnet 4.6 + Haiku, unlimited usage (20x)
 - **40+ official plugins** active: code-review, frontend-design, superpowers, feature-dev, pr-review-toolkit, playwright, hookify, figma, Notion, Vercel, Sentry, Stripe, Pinecone, HuggingFace, Greptile, and more
 - **109 skills** — interview, pitch, video, SEO (6 dedicated agents), art generation, deployment, data analysis...
 - **16 custom slash commands** — `/interview`, `/pitch`, `/backlog`, `/briefing`, `/decision`, `/failure`, `/sync`...
