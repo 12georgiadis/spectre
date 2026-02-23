@@ -35,7 +35,7 @@ Reusable analysis, decision frameworks, and automation scripts.
 
 | File | What it covers |
 |------|---------------|
-| [Max Plan vs API](patterns/max-vs-api.md) | When Claude Code Max ($100/mo) becomes cheaper than API pay-per-use. Breakpoint analysis with real numbers. |
+| [Max Plan vs API](patterns/max-vs-api.md) | When Claude Code Max ($200/mo) pays off vs API. Real usage data: Jan $12, Feb ~$137 projected. Breakeven analysis. |
 | [tmux Survival Guide](patterns/tmux-survival.md) | Never lose a session. Multi-machine setup, remote access, recovery after reboot, navigation cheatsheet. |
 | [Telegram Bridge](patterns/telegram-bridge.md) | Control Claude Code from your phone via Telegram. Bidirectional: text, voice, images, files. Multi-window support. |
 | [Notifications](patterns/notifications.md) | Get notified when tasks finish. Sound (Zelda!) + push notifications (Pushover/Telegram/native macOS). |
@@ -84,7 +84,7 @@ Articles and threads that shaped the setup.
 ## Stack
 
 ### Claude Code
-- **Max plan** — Opus 4 + Sonnet + Haiku, unlimited usage
+- **Max plan ($200/mo)** — Opus 4 + Sonnet + Haiku, unlimited usage (20x)
 - **40+ official plugins** active: code-review, frontend-design, superpowers, feature-dev, pr-review-toolkit, playwright, hookify, figma, Notion, Vercel, Sentry, Stripe, Pinecone, HuggingFace, Greptile, and more
 - **109 skills** — interview, pitch, video, SEO (6 dedicated agents), art generation, deployment, data analysis...
 - **16 custom slash commands** — `/interview`, `/pitch`, `/backlog`, `/briefing`, `/decision`, `/failure`, `/sync`...

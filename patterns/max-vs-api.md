@@ -9,7 +9,7 @@
 
 ### Verdict
 - **Usage léger** (< $50/mois equiv. API) : l'API est moins chère
-- **Usage intensif** (> $100/mois equiv. API) : Max est rentable
+- **Usage intensif** (> $200/mois equiv. API) : Max est rentable (breakeven sur le plan $200/mo)
 - **Point de bascule** : quand on passe à Opus et qu'on utilise les subagents/sessions parallèles
 
 ### Facteurs qui font grimper l'usage
