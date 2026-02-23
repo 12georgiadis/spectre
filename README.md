@@ -44,6 +44,10 @@ Reusable analysis, decision frameworks, and automation scripts.
 | [Memory System](patterns/memory-system.md) | Persistent memory across sessions. Daily logs, backlog tracking, Spotlight search. Claude Code remembers what you did yesterday. |
 | [Resume Sessions](patterns/resume-sessions.md) | Restore all tmux windows after a reboot with `claude --resume`. One script, priority-ordered, named windows. |
 | [Cross-Platform](patterns/cross-platform.md) | How everything works on macOS, Linux, and Windows (WSL2). Platform abstraction layer, bootstrap, and WSL2 setup guide. |
+| [Agent Layout Monitoring](patterns/agent-layout-monitoring.md) | Monitor subagent activity in real-time without leaving the main session. Split-pane layout, tmux hooks, live tail. |
+| [Multi-Machine Setup](patterns/multi-machine.md) | MacBook Air M3 + Mac Mini M4 + PC Windows on Tailscale. SSH/mosh workflow, git sync strategy, MacBook = source of truth. |
+| [Ghostty + cmux](patterns/ghostty-cmux.md) | GPU terminal + native tmux workflow. Replaced iTerm2 (Feb 2026). Auto-restore all windows on reboot, no AppleScript. |
+| [Agent Teams](patterns/agent-teams.md) | Peer-to-peer multi-agent coordination. When to use vs subagents. Task list sharing, messaging protocol, shutdown flow. |
 
 ### Journal
 
@@ -79,13 +83,46 @@ Articles and threads that shaped the setup.
 
 ## Stack
 
-- **Claude Code** on Max plan (Opus + Sonnet + Haiku)
-- **tmux** for parallel sessions (aliases `za`/`zb`/`zc`/`zd`)
-- **10+ MCP servers** (TMDB, filesystem, browser devtools...)
-- **18 custom skills** (interview, pitch, video processing, SEO, art generation...)
-- **Hooks**: Zelda notification sound + Telegram push on task completion
-- **VoiceInk** for voice dictation (offline, open source)
-- **Memory system**: `MEMORY.md` + daily logs in `memory/YYYY-MM-DD.md`
+### Claude Code
+- **Max plan** — Opus 4 + Sonnet + Haiku, unlimited usage
+- **40+ official plugins** active: code-review, frontend-design, superpowers, feature-dev, pr-review-toolkit, playwright, hookify, figma, Notion, Vercel, Sentry, Stripe, Pinecone, HuggingFace, Greptile, and more
+- **109 skills** — interview, pitch, video, SEO (6 dedicated agents), art generation, deployment, data analysis...
+- **16 custom slash commands** — `/interview`, `/pitch`, `/backlog`, `/briefing`, `/decision`, `/failure`, `/sync`...
+- **38 persona agents** — 32 filmmakers and thinkers (Tarkovsky, Akerman, Lynch, Duras, Foucault, Haraway...) + 6 SEO specialists. Each is a distinct creative voice for specific phases of work.
+- **3 custom MCP servers**: iMessage (read/search/send), Telegram (MTProto bridge), Postiz (social media scheduling API)
+- **Agent Teams** (experimental) — peer-to-peer multi-agent coordination. Agents share a task list, assign work, communicate directly. Enabled via `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`.
+
+### Terminal & Sessions
+- **Ghostty** — GPU-accelerated terminal, replaced iTerm2 (Feb 2026)
+- **tmux** — persistent sessions, never lose work. Aliases: `za`/`zb`/`zc`/`zd` for window navigation
+- **cmux** — native tmux workflow replacing custom AppleScript layouts. Auto-restores all windows after reboot.
+
+### Hardware / Multi-machine
+- **MacBook Air M3** — primary workstation (Paris + travel)
+- **Mac Mini M4** — headless server, always on. Claude Code running 24/7 via tmux. Accessible via SSH + Tailscale from anywhere.
+- **PC Windows RTX 5090** — ComfyUI node for GPU-intensive generation (image, video, depth maps)
+- **iPhone** — Telegram bot for remote Claude Code control (text, voice, images)
+- **iPad** — Blink Shell (SSH to Mac Mini), Jump Desktop (remote desktop), full mobile workflow
+
+### Networking
+- **Tailscale** — mesh VPN connecting all machines. MacBook, Mac Mini, PC Windows, iPhone, iPad. SSH to Mac Mini from anywhere: `ssh ismaelstudiominim4@100.84.223.88`
+- **Mosh** — stable SSH over mobile networks (Tailscale + mosh combo)
+
+### Self-hosted
+- **Postiz** on Mac Mini — social media scheduling, self-hosted via OrbStack/Docker (7 containers). API at `http://100.84.223.88:4007`.
+- **ComfyUI** on PC — local inference for Wan 2.1 T2V/I2V, SDXL, RIFE interpolation, ESRGAN upscale. Accessible via Tailscale.
+- **Comfy Cloud** — overflow GPU ($20/mo, 96GB VRAM) for heavy workflows.
+
+### Automation & Notifications
+- **Hooks**: Zelda sound + Telegram push on every task completion
+- **Heartbeat agent** — periodic background checks, health monitoring
+- **Auto-sync cron** — `~/.claude/` synced to GitHub every 30min (MacBook) / 1h (Mini)
+- **VoiceInk** — offline voice dictation
+
+### Memory
+- **BACKLOG.md** — single source of truth for all open work across sessions
+- **`memory/YYYY-MM-DD-subject.md`** — session logs: decisions, problems solved, todos
+- **Spotlight search** — `mdfind -onlyin ~/.claude/memory/ "keyword"` for instant recall
 
 ## Influences
 
