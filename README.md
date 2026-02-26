@@ -72,6 +72,7 @@ Articles and threads that shaped the setup.
 | File | What it covers |
 |------|---------------|
 | [gmoney.eth - 25 lessons](sources/2026-02-15-gmoney-25-tips.md) | Annotated breakdown of @gmoneyNFT's thread (Feb 2026). Each tip scored: already implemented, implemented after reading, to explore later, decided against. |
+| [Karpathy — Vibe Coding](sources/2025-02-02-karpathy-vibe-coding.md) | The original tweet that coined the term (Feb 2025, 6.7M views). Full transcript + why this repo is the attempt to make vibe coding sustainable rather than throwaway. |
 
 ## Core principles
 
