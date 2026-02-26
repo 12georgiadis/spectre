@@ -4,7 +4,7 @@
 
 ---
 
-In late 2024, Andrej Karpathy [wrote](KARPATHY_LINK_HERE):
+In late 2024, Andrej Karpathy [wrote](https://x.com/karpathy/status/2026731645169185220):
 
 > *"It is hard to communicate how much programming has changed due to AI in the last 2 months [...] coding agents basically didn't work before December and basically work since [...] You're not typing computer code into an editor like the way things were since computers were invented, that era is over. You're spinning up AI agents, giving them tasks in English and managing and reviewing their work in parallel."*
 
