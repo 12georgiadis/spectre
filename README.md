@@ -57,6 +57,14 @@ Decisions log. What we tried, what worked, what we dropped.
 |------|---------------|
 | [Genesis](journal/2026-02-15-genesis.md) | Day zero of systematic documentation. Full audit of our setup against gmoney.eth's 25 tips. Resulted in 7 new CLAUDE.md rules, statusline, deny rules, tmux aliases, daily memory logs. |
 
+### Essays
+
+Writing published from this practice.
+
+| File | What it covers |
+|------|---------------|
+| [On Agentic Engineering](essays/2026-02-25-on-agentic-engineering.md) | Notes from a filmmaker who's been through multiple technological ruptures in cinema — and recognizes this one. |
+
 ### Sources
 
 Articles and threads that shaped the setup.
