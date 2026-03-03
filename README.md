@@ -48,6 +48,7 @@ Reusable analysis, decision frameworks, and automation scripts.
 | [Multi-Machine Setup](patterns/multi-machine.md) | MacBook Air M3 + Mac Mini M4 + PC Windows on Tailscale. SSH/mosh workflow, git sync strategy, MacBook = source of truth. |
 | [Ghostty + cmux](patterns/ghostty-cmux.md) | GPU terminal + native tmux workflow. Replaced iTerm2 (Feb 2026). Auto-restore all windows on reboot, no AppleScript. |
 | [Agent Teams](patterns/agent-teams.md) | Peer-to-peer multi-agent coordination. When to use vs subagents. Task list sharing, messaging protocol, shutdown flow. |
+| [VO Analysis Pipeline](patterns/vo-analysis-pipeline.md) | Voice-over analysis for documentary production. Local ASR (Parakeet v3 via MacWhisper) → Gemini Flash semantic analysis → project codex update. Classifies VO takes, director notes, film references, intonation. 92 clips, ~5 min end-to-end. |
 
 ### Journal
 
