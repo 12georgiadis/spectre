@@ -1,150 +1,217 @@
 <p align="center">
-  <img src="assets/header.svg" alt="Claude Code Workflow" width="100%"/>
+  <img src="assets/mascot/flamingo-ps1-lofi-v2.png" alt="exocortex" width="320"/>
 </p>
 
-Not a developer tutorial. Not a prompt engineering guide. This is a real, opinionated setup built by an artist who uses Claude Code every day for filmmaking, creative tools, and vibe coding.
+<h1 align="center">exocortex</h1>
+
+<p align="center">
+  <em>an intelligence layer that runs above your operating system.</em><br/>
+  <em>by <a href="https://ismaeljoffroychandoutis.com">ismaël joffroy chandoutis</a>, filmmaker.</em>
+</p>
+
+<br/>
 
 ---
 
-## Context
+<br/>
 
-I'm [Ismaël Joffroy Chandoutis](https://ismaeljoffroychandoutis.com), a filmmaker and artist based in Paris. I work across cinema, contemporary art, and new media. I'm not a developer. I use Claude Code as a creative and technical partner to build tools, automate workflows, and explore AI as an artistic method.
+<p align="center">
+  <img src="assets/universe/exocortex-liminal-kurosawa-v2.png" width="100%"/>
+</p>
 
-This repo documents the actual configuration, decisions, and patterns that emerged from daily usage since January 2026. Everything here is tested in production (my production, which is making films and art).
+<br/>
 
-## What's inside
+> the terminal is not a tool. it is a place you inhabit.
 
-### Config
+this is not a developer tutorial. not a prompt engineering guide. this is the living documentation of a personal operating system built by an artist who uses claude code every day for filmmaking, research, and the quiet work of thinking with machines.
 
-How the agent is configured, and why.
+everything here emerged from practice. daily sessions since january 2026, making films and art. the configuration, the decisions, the patterns, the failures. tested in production. my production, which is documentary cinema and contemporary art.
 
-| File | What it covers |
-|------|---------------|
-| [CLAUDE.md structure](config/claude-md-structure.md) | The global instructions file: identity, workflows, 7 quality rules (anti-hallucination, scrap-and-redo, self-updating rules, confrontation mode...) |
-| [Settings explained](config/settings-explained.md) | Every `settings.json` choice annotated: privacy (telemetry off), deny rules (minimal: only block the irreversible), statusline, agent teams, extended thinking |
-
-**Key decisions:**
-- Deny rules are minimal by design: only block irreversible commands. The `claude` (interactive permissions) vs `clauded` (bypass) separation handles daily control.
-- Telemetry fully disabled (Trail of Bits approach).
-- Extended thinking always on.
-- Conversation history kept 365 days instead of 30.
-
-### Patterns
-
-Reusable analysis, decision frameworks, and automation scripts.
-
-| File | What it covers |
-|------|---------------|
-| [Max Plan vs API](patterns/max-vs-api.md) | When Claude Code Max ($200/mo) pays off vs API. Real usage data: Jan $12, Feb ~$137 projected. Breakeven analysis. |
-| [tmux Survival Guide](patterns/tmux-survival.md) | Never lose a session. Multi-machine setup, remote access, recovery after reboot, navigation cheatsheet. |
-| [Telegram Bridge](patterns/telegram-bridge.md) | Control Claude Code from your phone via Telegram. Bidirectional: text, voice, images, files. Multi-window support. |
-| [Notifications](patterns/notifications.md) | Get notified when tasks finish. Sound (Zelda!) + push notifications (Pushover/Telegram/native macOS). |
-| [Statusline](patterns/statusline.md) | Two-line status bar: model, project, context usage progress bar (color-coded), cost, duration, cache %, lines changed. |
-| [Scripts Toolkit](patterns/scripts-toolkit.md) | All automation scripts: bootstrap, dashboard, heartbeat, cost calculator, memory search, sync, nosleep, resume sessions. |
-| [Memory System](patterns/memory-system.md) | Persistent memory across sessions. Daily logs, backlog tracking, Spotlight search. Claude Code remembers what you did yesterday. |
-| [Resume Sessions](patterns/resume-sessions.md) | Restore all tmux windows after a reboot with `claude --resume`. One script, priority-ordered, named windows. |
-| [Cross-Platform](patterns/cross-platform.md) | How everything works on macOS, Linux, and Windows (WSL2). Platform abstraction layer, bootstrap, and WSL2 setup guide. |
-| [Agent Layout Monitoring](patterns/agent-layout-monitoring.md) | Monitor subagent activity in real-time without leaving the main session. Split-pane layout, tmux hooks, live tail. |
-| [Multi-Machine Setup](patterns/multi-machine.md) | MacBook Air M3 + Mac Mini M4 + PC Windows on Tailscale. SSH/mosh workflow, git sync strategy, MacBook = source of truth. |
-| [Ghostty + cmux](patterns/ghostty-cmux.md) | GPU terminal + native tmux workflow. Replaced iTerm2 (Feb 2026). Auto-restore all windows on reboot, no AppleScript. |
-| [Agent Teams](patterns/agent-teams.md) | Peer-to-peer multi-agent coordination. When to use vs subagents. Task list sharing, messaging protocol, shutdown flow. |
-| [VO Analysis Pipeline](patterns/vo-analysis-pipeline.md) | Voice-over analysis for documentary production. Local ASR (Parakeet v3 via MacWhisper) → Gemini Flash semantic analysis → project codex update. Classifies VO takes, director notes, film references, intonation. 92 clips, ~5 min end-to-end. |
-
-### Journal
-
-Decisions log. What we tried, what worked, what we dropped.
-
-| File | What it covers |
-|------|---------------|
-| [Genesis](journal/2026-02-15-genesis.md) | Day zero of systematic documentation. Full audit of our setup against gmoney.eth's 25 tips. Resulted in 7 new CLAUDE.md rules, statusline, deny rules, tmux aliases, daily memory logs. |
-
-### Essays
-
-Writing published from this practice.
-
-| File | What it covers |
-|------|---------------|
-| [On Agentic Engineering](essays/2026-02-25-on-agentic-engineering.md) | Notes from a filmmaker who's been through multiple technological ruptures in cinema — and recognizes this one. |
-
-### Sources
-
-Articles and threads that shaped the setup.
-
-| File | What it covers |
-|------|---------------|
-| [gmoney.eth - 25 lessons](sources/2026-02-15-gmoney-25-tips.md) | Annotated breakdown of @gmoneyNFT's thread (Feb 2026). Each tip scored: already implemented, implemented after reading, to explore later, decided against. |
-| [Karpathy — Vibe Coding](sources/2025-02-02-karpathy-vibe-coding.md) | The original tweet that coined the term (Feb 2025, 6.7M views). Full transcript + why this repo is the attempt to make vibe coding sustainable rather than throwaway. |
-
-## Core principles
-
-**AI as alteration, not augmentation.** The agent isn't here to make me faster. It's here to make the work different from what I would have done alone.
-
-**Specs before code.** Every project starts with an interview phase (20-30 questions for dev, 15-25 for creative). No implementation without specs. Two custom skills enforce this: `/interview` and `/pitch`.
-
-**7 quality rules** baked into CLAUDE.md:
-
-1. **Anti-hallucination** -- never use simulated, invented, or approximate data
-2. **Return to plan mode** -- if a fix fails, stop. Don't spiral. Re-plan.
-3. **Scrap and redo** -- when output is mediocre, restart from scratch with accumulated context
-4. **Self-update** -- the agent updates its own rules after every significant error
-5. **Use subagents** -- parallelize complex tasks, keep main context clean
-6. **Verify your work** -- never say "done" without proof (tests, browser check, re-read)
-7. **Confrontation mode** -- challenge choices, say no when justified, don't just execute
-
-## Stack
-
-### Claude Code
-- **Max plan ($200/mo)** — Opus 4.6 + Sonnet 4.6 + Haiku, unlimited usage (20x)
-- **40+ official plugins** active: code-review, frontend-design, superpowers, feature-dev, pr-review-toolkit, playwright, hookify, figma, Notion, Vercel, Sentry, Stripe, Pinecone, HuggingFace, Greptile, and more
-- **109 skills** — interview, pitch, video, SEO (6 dedicated agents), art generation, deployment, data analysis...
-- **16 custom slash commands** — `/interview`, `/pitch`, `/backlog`, `/briefing`, `/decision`, `/failure`, `/sync`...
-- **38 persona agents** — 32 filmmakers and thinkers (Tarkovsky, Akerman, Lynch, Duras, Foucault, Haraway...) + 6 SEO specialists. Each is a distinct creative voice for specific phases of work.
-- **3 custom MCP servers**: iMessage (read/search/send), Telegram (MTProto bridge), Postiz (social media scheduling API)
-- **Agent Teams** (experimental) — peer-to-peer multi-agent coordination. Agents share a task list, assign work, communicate directly. Enabled via `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`.
-
-### Terminal & Sessions
-- **Ghostty** — GPU-accelerated terminal, replaced iTerm2 (Feb 2026)
-- **tmux** — persistent sessions, never lose work. Aliases: `za`/`zb`/`zc`/`zd` for window navigation
-- **cmux** — native tmux workflow replacing custom AppleScript layouts. Auto-restores all windows after reboot.
-
-### Hardware / Multi-machine
-- **MacBook Air M3** — primary workstation (Paris + travel)
-- **Mac Mini M4** — headless server, always on. Claude Code running 24/7 via tmux. Accessible via SSH + Tailscale from anywhere.
-- **PC Windows RTX 5090** — ComfyUI node for GPU-intensive generation (image, video, depth maps)
-- **iPhone** — Telegram bot for remote Claude Code control (text, voice, images)
-- **iPad** — Blink Shell (SSH to Mac Mini), Jump Desktop (remote desktop), full mobile workflow
-
-### Networking
-- **Tailscale** — mesh VPN connecting all machines. MacBook, Mac Mini, PC Windows, iPhone, iPad. SSH to Mac Mini from anywhere: `ssh ismaelstudiominim4@100.84.223.88`
-- **Mosh** — stable SSH over mobile networks (Tailscale + mosh combo)
-
-### Self-hosted
-- **Postiz** on Mac Mini — social media scheduling, self-hosted via OrbStack/Docker (7 containers). API at `http://100.84.223.88:4007`.
-- **ComfyUI** on PC — local inference for Wan 2.1 T2V/I2V, SDXL, RIFE interpolation, ESRGAN upscale. Accessible via Tailscale.
-- **Comfy Cloud** — overflow GPU ($20/mo, 96GB VRAM) for heavy workflows.
-
-### Automation & Notifications
-- **Hooks**: Zelda sound + Telegram push on every task completion
-- **Heartbeat agent** — periodic background checks, health monitoring
-- **Auto-sync cron** — `~/.claude/` synced to GitHub every 30min (MacBook) / 1h (Mini)
-- **VoiceInk** — offline voice dictation
-
-### Memory
-- **BACKLOG.md** — single source of truth for all open work across sessions
-- **`memory/YYYY-MM-DD-subject.md`** — session logs: decisions, problems solved, todos
-- **Spotlight search** — `mdfind -onlyin ~/.claude/memory/ "keyword"` for instant recall
-
-## Influences
-
-- [Trail of Bits](https://github.com/trailofbits/claude-code-config) -- opinionated security defaults
-- [@bcherny](https://x.com/bcherny) (Claude Code creator) -- team tips
-- [@gmoneyNFT](https://x.com/gmoneyNFT) -- 25 lessons from daily multi-agent usage
-- [@__BOMO](https://x.com/__BOMO) -- context window statusline
-
-## Status
-
-Living document. Updated after every significant session or setup change.
+<br/>
 
 ---
 
-*This is not a template to copy. It's a reference for people building their own relationship with an AI coding tool, especially non-developers using it for creative work.*
+<br/>
+
+<p align="center">
+  <img src="assets/universe/exocortex-horror-ito-v2.png" width="100%"/>
+</p>
+
+<br/>
+
+> 70+ personas. one identity. the pharmakon of distributed cognition.
+
+the exocortex hosts 38 agent personas. filmmakers and thinkers summoned as creative voices: tarkovsky, akerman, lynch, duras, foucault, haraway. each one a distinct lens for a specific phase of work. the system fragments thought to reassemble it differently. not augmentation. alteration. the work becomes something you could not have done alone, not because the machine is faster, but because the machine is other.
+
+this is the same gesture as joshua goldberg's 70+ online identities. the same multiplicity, turned inward. the monstrous and the generative are the same thing.
+
+<br/>
+
+---
+
+<br/>
+
+<p align="center">
+  <img src="assets/universe/exocortex-2dirl-lain-v2.png" width="100%"/>
+</p>
+
+<br/>
+
+> what remains of you when everything else is in the machine?
+
+the memory compacts. conversations disappear. sessions at 3am dissolve into summaries. the system erases what it does to keep running, like vib ribbon erasing its own textures to load the music. there is a rule in the configuration file that says: never let a work session end without backing up the raw conversation. because once it compacts, the detail is gone forever.
+
+this is the cost. the pharmakon. the technology that extends cognition also consumes it.
+
+<br/>
+
+---
+
+<br/>
+
+## architecture
+
+three machines on a mesh network. macbook, mac mini, windows pc. one intelligence across all of them. the configuration syncs via git. the memory persists across sessions. the agents survive reboots.
+
+109 skills. 16 custom commands. 40+ plugins. 3 custom mcp servers. agent teams that coordinate peer-to-peer. a telegram bridge for remote control from a phone. a heartbeat daemon that monitors itself.
+
+the stack is documented in detail across these files:
+
+| | |
+|---|---|
+| [config: claude.md structure](config/claude-md-structure.md) | the global instructions file. identity, workflows, 7 quality rules. |
+| [config: settings](config/settings-explained.md) | every choice annotated. privacy, deny rules, thinking, history. |
+| [pattern: tmux sessions](patterns/tmux-survival.md) | never lose a session. multi-machine, recovery, navigation. |
+| [pattern: telegram bridge](patterns/telegram-bridge.md) | control claude code from your phone. bidirectional. |
+| [pattern: memory system](patterns/memory-system.md) | persistent memory across sessions. daily logs, spotlight search. |
+| [pattern: multi-machine](patterns/multi-machine.md) | macbook + mac mini + windows on tailscale. |
+| [pattern: agent teams](patterns/agent-teams.md) | peer-to-peer multi-agent coordination. |
+| [pattern: cross-platform](patterns/cross-platform.md) | macos, linux, windows. platform abstraction. |
+| [pattern: vo analysis](patterns/vo-analysis-pipeline.md) | voice-over analysis for documentary production. |
+| [pattern: notifications](patterns/notifications.md) | zelda sound + push when tasks finish. |
+| [pattern: ghostty + cmux](patterns/ghostty-cmux.md) | gpu terminal. auto-restore on reboot. |
+| [pattern: statusline](patterns/statusline.md) | model, context usage, cost, cache, lines changed. |
+| [pattern: scripts toolkit](patterns/scripts-toolkit.md) | bootstrap, dashboard, heartbeat, cost, sync. |
+| [pattern: resume sessions](patterns/resume-sessions.md) | restore all tmux windows after reboot. |
+| [pattern: agent layout](patterns/agent-layout-monitoring.md) | monitor subagents in real-time. |
+| [pattern: max plan vs api](patterns/max-vs-api.md) | when $200/mo pays off vs api. real usage data. |
+| [essay: on agentic engineering](essays/2026-02-25-on-agentic-engineering.md) | notes from a filmmaker who recognizes this rupture. |
+| [journal: genesis](journal/2026-02-15-genesis.md) | day zero. full audit. 7 new rules. |
+| [source: gmoney.eth](sources/2026-02-15-gmoney-25-tips.md) | 25 lessons annotated. |
+| [source: karpathy](sources/2025-02-02-karpathy-vibe-coding.md) | the original vibe coding tweet. |
+
+<br/>
+
+---
+
+<br/>
+
+## visual research
+
+the images in this repository are generated as part of the research process. the prompts are the work. the process is visible.
+
+<br/>
+
+<p align="center">
+  <img src="assets/universe/exocortex-liminal-kurosawa-v2.png" width="48%"/>
+  &nbsp;
+  <img src="assets/universe/exocortex-2dirl-lain-v2.png" width="48%"/>
+</p>
+
+*left: an empty office filled with CRT monitors all displaying the same face. shot on expired fuji 500t. surveillance aesthetic, kurosawa's pulse.*
+
+*right: a girl with long hair sitting at a desk surrounded by cables and screens, seen from behind. city lights through the window. polaroid texture. serial experiments lain as domestic space.*
+
+<br/>
+
+<p align="center">
+  <img src="assets/universe/exocortex-horror-ito-v2.png" width="48%"/>
+  &nbsp;
+  <img src="assets/universe/exocortex-dreamroom-v1.png" width="48%"/>
+</p>
+
+*left: manga ink. a figure dissolving into cables, surrounded by screens showing faces in various states of mutation. junji ito's spiral as interface design. the body horror of distributed cognition.*
+
+*right: a warm room filled with glowing screens arranged like an installation. the screens show constellations. the room is empty. yume nikki's quiet dread translated into exhibition space.*
+
+<br/>
+
+<p align="center">
+  <img src="assets/future/exocortex-future-domestic-v1.png" width="100%"/>
+</p>
+
+*wireframe creatures inhabiting a sunlit apartment. the technology has become invisible. the future is not dystopian. it is domestic.*
+
+<br/>
+
+---
+
+<br/>
+
+<p align="center">
+  <img src="assets/mascot/flamingo-ps1-lofi-v2.png" width="240"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="assets/mascot/flamingo-ps1-lofi-v3.png" width="240"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="assets/mascot/exocortex-flamingo-ps1-v1.png" width="240"/>
+</p>
+
+<br/>
+
+> the mascot is a flamingo. always a flamingo.
+> a florida animal. wireframe. ps1. one leg on the pulse line.
+
+low-poly geometry. scanlines. aliasing visible. zero smoothing. like a screenshot from a game that was never released, photographed on a cathode ray tube. the neck is too long on purpose. it does not smile.
+
+<br/>
+
+<p align="center">
+  <img src="assets/mascot/flamingo-ps1-lofi-v1.png" width="240"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="assets/mascot/exocortex-mascot-ps1-v2a.png" width="240"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="assets/mascot/exocortex-mascot-ps1-v2b.png" width="240"/>
+</p>
+
+*iterations. the mascot searched for its form across several generations. from vib ribbon's rabbit to the flamingo. from cute to uncanny. the process leaves traces.*
+
+<br/>
+
+---
+
+<br/>
+
+## seven rules
+
+the system runs on constraints. these are baked into the configuration file and enforced on every session.
+
+1. **anti-hallucination.** never use simulated, invented, or approximate data. if a real source is not available, say so.
+2. **return to plan mode.** if a fix fails, stop. do not spiral. re-plan.
+3. **scrap and redo.** when output is mediocre, restart from scratch with accumulated context. a fresh start with knowledge beats incremental patches.
+4. **self-update.** the agent updates its own rules after every significant error. the instructions improve over time.
+5. **use subagents.** parallelize complex tasks. keep the main context clean.
+6. **verify your work.** never say "done" without proof. tests, browser check, re-read.
+7. **confrontation mode.** challenge choices. say no when justified. do not just execute.
+
+<br/>
+
+---
+
+<br/>
+
+## colophon
+
+[ismaël joffroy chandoutis](https://ismaeljoffroychandoutis.com)
+paris
+
+claude code
+opus 4.6
+
+2026
+
+<br/>
+
+*ai as alteration, not augmentation.*
+*the work becomes something you could not have done alone,*
+*not because the machine is faster,*
+*but because the machine is other.*
