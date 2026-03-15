@@ -17,7 +17,7 @@
 <br/>
 
 <p align="center">
-  <img src="assets/universe/exocortex-liminal-kurosawa-v2.png" width="100%"/>
+  <img src="assets/universe/spectre-liminal-kurosawa-v2.png" width="100%"/>
 </p>
 
 <br/>
@@ -35,7 +35,7 @@ everything here emerged from practice. daily sessions since january 2026, making
 <br/>
 
 <p align="center">
-  <img src="assets/universe/exocortex-horror-ito-v2.png" width="100%"/>
+  <img src="assets/universe/spectre-horror-ito-v2.png" width="100%"/>
 </p>
 
 <br/>
@@ -53,7 +53,7 @@ this is the same gesture as joshua goldberg's 70+ online identities. the same mu
 <br/>
 
 <p align="center">
-  <img src="assets/universe/exocortex-2dirl-lain-v2.png" width="100%"/>
+  <img src="assets/universe/spectre-2dirl-lain-v2.png" width="100%"/>
 </p>
 
 <br/>
@@ -114,9 +114,9 @@ the images in this repository are generated as part of the research process. the
 <br/>
 
 <p align="center">
-  <img src="assets/universe/exocortex-liminal-kurosawa-v2.png" width="48%"/>
+  <img src="assets/universe/spectre-liminal-kurosawa-v2.png" width="48%"/>
   &nbsp;
-  <img src="assets/universe/exocortex-2dirl-lain-v2.png" width="48%"/>
+  <img src="assets/universe/spectre-2dirl-lain-v2.png" width="48%"/>
 </p>
 
 *left: an empty office filled with CRT monitors all displaying the same face. shot on expired fuji 500t. surveillance aesthetic, kurosawa's pulse.*
@@ -126,9 +126,9 @@ the images in this repository are generated as part of the research process. the
 <br/>
 
 <p align="center">
-  <img src="assets/universe/exocortex-horror-ito-v2.png" width="48%"/>
+  <img src="assets/universe/spectre-horror-ito-v2.png" width="48%"/>
   &nbsp;
-  <img src="assets/universe/exocortex-dreamroom-v1.png" width="48%"/>
+  <img src="assets/universe/spectre-dreamroom-v1.png" width="48%"/>
 </p>
 
 *left: manga ink. a figure dissolving into cables, surrounded by screens showing faces in various states of mutation. junji ito's spiral as interface design. the body horror of distributed cognition.*
@@ -138,7 +138,7 @@ the images in this repository are generated as part of the research process. the
 <br/>
 
 <p align="center">
-  <img src="assets/future/exocortex-future-domestic-v1.png" width="100%"/>
+  <img src="assets/future/spectre-future-domestic-v1.png" width="100%"/>
 </p>
 
 *wireframe creatures inhabiting a sunlit apartment. the technology has become invisible. the future is not dystopian. it is domestic.*
@@ -154,7 +154,7 @@ the images in this repository are generated as part of the research process. the
   &nbsp;&nbsp;&nbsp;
   <img src="assets/mascot/flamingo-ps1-lofi-v3.png" width="240"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="assets/mascot/exocortex-flamingo-ps1-v1.png" width="240"/>
+  <img src="assets/mascot/spectre-flamingo-ps1-v1.png" width="240"/>
 </p>
 
 <br/>
@@ -169,9 +169,9 @@ low-poly geometry. scanlines. aliasing visible. zero smoothing. like a screensho
 <p align="center">
   <img src="assets/mascot/flamingo-ps1-lofi-v1.png" width="240"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="assets/mascot/exocortex-mascot-ps1-v2a.png" width="240"/>
+  <img src="assets/mascot/spectre-mascot-ps1-v2a.png" width="240"/>
   &nbsp;&nbsp;&nbsp;
-  <img src="assets/mascot/exocortex-mascot-ps1-v2b.png" width="240"/>
+  <img src="assets/mascot/spectre-mascot-ps1-v2b.png" width="240"/>
 </p>
 
 *iterations. the mascot searched for its form across several generations. from vib ribbon's rabbit to the flamingo. from cute to uncanny. the process leaves traces.*
