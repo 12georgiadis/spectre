@@ -1,13 +1,13 @@
-# Visual Charter — Exocortex
+# Visual Charter — Spectre
 
-_Identité visuelle du projet Claude Code OS / Exocortex_
+_Identité visuelle du projet Claude Code OS / Spectre_
 _Ismaël Joffroy Chandoutis — 2026_
 
 ## Concept
 
-L'Exocortex est un système d'exploitation personnel qui vit au-dessus des machines. Son identité visuelle doit refléter trois dimensions qui se fondent l'une dans l'autre : l'intimité technique (le CLI comme espace domestique), l'univers philosophique (la cognition distribuée comme monde habitable), et la projection future (la fusion humain-machine comme évidence paisible).
+Le Spectre est un système d'exploitation personnel qui vit au-dessus des machines. Son identité visuelle doit refléter trois dimensions qui se fondent l'une dans l'autre : l'intimité technique (le CLI comme espace domestique), l'univers philosophique (la cognition distribuée comme monde habitable), et la projection future (la fusion humain-machine comme évidence paisible).
 
-**Pharmakon** : chaque visuel de l'Exocortex doit porter l'ambiguïté remède/poison de la technologie. L'interface est belle ET inquiétante. Le système est puissant ET fragile. La mascotte est attachante ET étrange. Jamais utopique, jamais dystopique. Toujours la dissonance. Le sens émerge dans l'écart entre la forme et le contenu, jamais dans leur concordance.
+**Pharmakon** : chaque visuel du Spectre doit porter l'ambiguïté remède/poison de la technologie. L'interface est belle ET inquiétante. Le système est puissant ET fragile. La mascotte est attachante ET étrange. Jamais utopique, jamais dystopique. Toujours la dissonance. Le sens émerge dans l'écart entre la forme et le contenu, jamais dans leur concordance.
 
 ## Le spectre visuel
 
@@ -28,7 +28,7 @@ Pas trois piliers séparés mais un système fluide. La pulse line est l'éléme
 - Le trait qui vibre VRAIMENT, comme le curseur CLI qui clignote
 - Chaque diagramme peut contenir une double lecture (technique ET émotionnelle) par le jeu des espaces négatifs
 
-**Ce que ça dit** : la technique est vivante, pas corporate. L'OS a une personnalité. Le sacrifice est constitutif : Vib Ribbon effaçait ses propres graphismes pour charger la musique. L'Exocortex compacte sa mémoire pour penser. L'esthétique vient de la PERTE, pas du style.
+**Ce que ça dit** : la technique est vivante, pas corporate. L'OS a une personnalité. Le sacrifice est constitutif : Vib Ribbon effaçait ses propres graphismes pour charger la musique. Le Spectre compacte sa mémoire pour penser. L'esthétique vient de la PERTE, pas du style.
 
 ### Pôle UNIVERS — Yume Nikki + Lain + Films d'Ismaël
 
@@ -42,7 +42,7 @@ Pas trois piliers séparés mais un système fluide. La pulse line est l'éléme
 - 2D IRL : wireframe et pixel art superposés au monde réel, le digital qui déborde de l'écran
 - La fragmentation de Joshua Goldberg : 70+ personas en ligne, chacune avec sa propre voix et sa propre cohérence. Pas du désordre, un système
 
-**Usage** : visuels conceptuels, articles de blog, présentations, le "monde" de l'Exocortex, réseaux sociaux.
+**Usage** : visuels conceptuels, articles de blog, présentations, le "monde" du Spectre, réseaux sociaux.
 
 **Style** :
 - Grain obligatoire (film, VHS, JPEG), jamais clean
@@ -52,13 +52,13 @@ Pas trois piliers séparés mais un système fluide. La pulse line est l'éléme
 - La technologie est organique, pas mécanique
 - Le matériau visuel vient de l'INTÉRIEUR : sessions Claude réelles, captures de terminal, screenshots de films d'Ismaël. Les références informent le traitement, pas le contenu
 
-**Ce que ça dit** : l'Exocortex est un lieu habité, usé, encombré. C'est un espace mental autant que technique. Il porte les traces de sessions à 3h du matin et de messages d'erreur empilés.
+**Ce que ça dit** : le Spectre est un lieu habité, usé, encombré. C'est un espace mental autant que technique. Il porte les traces de sessions à 3h du matin et de messages d'erreur empilés.
 
 ### Pôle FUTUR — Lain + Vib Ribbon
 
 **Référence** : Serial Experiments Lain prolongée. La conscience dans le réseau comme état domestique, pas comme spectacle cyberpunk. Pas de hardware visible, pas de néons, pas de pluie.
 
-**Usage** : projections à 10 ans, vision de l'Exocortex futur, talks, manifeste visuel.
+**Usage** : projections à 10 ans, vision du Spectre futur, talks, manifeste visuel.
 
 **Style** :
 - Tech INVISIBLE : pas de hardware visible, pas de câbles, pas de serveurs
@@ -67,7 +67,7 @@ Pas trois piliers séparés mais un système fluide. La pulse line est l'éléme
 - Lumière douce, espaces ouverts, nature présente
 - Le futur est calme, pas chaotique
 
-**Ce que ça dit** : dans 10 ans, l'Exocortex est invisible. Les petites créatures wireframe sont nos compagnons cognitifs, elles vivent dans nos écrans, nos lunettes, notre champ de vision. Pas dystopique, domestique.
+**Ce que ça dit** : dans 10 ans, le Spectre est invisible. Les petites créatures wireframe sont nos compagnons cognitifs, elles vivent dans nos écrans, nos lunettes, notre champ de vision. Pas dystopique, domestique.
 
 ### Transitions entre pôles
 
@@ -90,7 +90,7 @@ Issue des FILMS d'Ismaël, pas de références externes.
 | Goldberg (wireframe GTA V) | Blanc pur `#FFFFFF` lignes fines | Structure, diagrammes, mascotte |
 | Goldberg (écrans dans le noir) | Bleu écran `#4A6FA5` | Accents, liens, éléments interactifs |
 | Goldberg (VHS archives) | Bruit chroma, bleeding rouge-bleu | Texture de superposition, grain |
-| Accent Exocortex | Violet `#7B68EE` | La signature, la pulse line |
+| Accent Spectre | Violet `#7B68EE` | La signature, la pulse line |
 
 Pas de tons chauds désaturés (sépia, ocre, beige rosé). Pas de palette Pinterest. La palette vient du travail.
 
@@ -132,6 +132,6 @@ Chaque image est accompagnée du prompt qui l'a générée (fichier `.txt` adjac
 6. **Pas de visages humains nets**. Flous, de dos, masqués, ou absents.
 7. **La tech est invisible dans le futur**. Pas de câbles, pas de hardware apparent.
 8. **Pharmakon** : chaque visuel porte l'ambiguïté remède/poison. Jamais un seul registre. Ni utopique ni dystopique.
-9. **Le sacrifice est constitutif** : Vib Ribbon efface ses graphismes pour tourner. L'Exocortex compacte sa mémoire pour penser. L'esthétique vient de la perte, pas du style. Montrer ce qui est sacrifié pour que le système fonctionne.
+9. **Le sacrifice est constitutif** : Vib Ribbon efface ses graphismes pour tourner. Le Spectre compacte sa mémoire pour penser. L'esthétique vient de la perte, pas du style. Montrer ce qui est sacrifié pour que le système fonctionne.
 10. **Persona Grid** : toute image peut être déclinée en grille de 9 variations du même sujet, chacune dans un registre visuel différent (VHS, blueprint, manga, thermique, aquarelle, brutaliste, pixel art, négatif, manuscrit). Comme les 70+ personas de Joshua : un seul système, des voix multiples. Les panneaux se contaminent aux bords.
-11. **La palette vient des films**. Pas de Pinterest, pas de références idéalisées. Vert Swatted, gris Maalbeek, bleu Goldberg, violet Exocortex.
+11. **La palette vient des films**. Pas de Pinterest, pas de références idéalisées. Vert Swatted, gris Maalbeek, bleu Goldberg, violet Spectre.

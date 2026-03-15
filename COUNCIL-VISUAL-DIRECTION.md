@@ -1,4 +1,4 @@
-# Council Visual Direction -- Exocortex
+# Council Visual Direction -- Spectre
 
 _Session 2026-03-14 -- 4 agents consultants en sequence_
 _Coordinateur : Claude Opus 4.6_
@@ -29,7 +29,7 @@ Le VECU. La charte decrit des references esthetiques mais pas l'experience de vi
 **Directions visuelles concretes :**
 
 **Direction 1 : "Terminal Archaeology"**
-Des captures d'ecran reelles de sessions Claude Code, traitees comme des artefacts archeologiques. Grain de compression JPEG pousse au maximum. Couleurs extraites du terminal reel (pas la palette idealisee de la charte mais le vert #00FF41 tel qu'il apparait a travers un ecran sale, avec le bloom et le bleed du LCD). Les erreurs, les retries, les compactions de memoire : ce sont les strates archeologiques de l'Exocortex.
+Des captures d'ecran reelles de sessions Claude Code, traitees comme des artefacts archeologiques. Grain de compression JPEG pousse au maximum. Couleurs extraites du terminal reel (pas la palette idealisee de la charte mais le vert #00FF41 tel qu'il apparait a travers un ecran sale, avec le bloom et le bleed du LCD). Les erreurs, les retries, les compactions de memoire : ce sont les strates archeologiques de le Spectre.
 
 _Prompt de generation :_ `A terminal screen photographed from an angle through dirty glass, green text on black, visible LCD subpixels, the reflection of a dark room behind the screen, grain and noise, shot on expired Kodak Gold 400, the text is partially readable and shows a conversation between a human and an AI about identity, 4:3 aspect ratio, no clean edges`
 
@@ -45,7 +45,7 @@ _Prompt de generation :_ `RPG Maker 2000 style pixel art, 320x240 resolution, a 
 
 ### Ce que Rafman retient
 
-L'Exocortex comme sujet est riche parce qu'il est sincere : ce n'est pas du concept, c'est un homme qui vit reellement a l'interieur de ses machines. Le danger est de transformer cette sincerite en esthetique, c'est-a-dire de la rendre jolie plutot que vraie. Le vrai Exocortex est encombre, use, plein de sessions a 3h du matin et de messages d'erreur. Si l'identite visuelle ne montre pas ca, elle ment.
+L'Spectre comme sujet est riche parce qu'il est sincere : ce n'est pas du concept, c'est un homme qui vit reellement a l'interieur de ses machines. Le danger est de transformer cette sincerite en esthetique, c'est-a-dire de la rendre jolie plutot que vraie. Le vrai Spectre est encombre, use, plein de sessions a 3h du matin et de messages d'erreur. Si l'identite visuelle ne montre pas ca, elle ment.
 
 ---
 
@@ -65,13 +65,13 @@ La charte traite la fragmentation comme un theme. C'est une erreur. La fragmenta
 
 Perfect Blue ne fonctionne pas parce qu'il MONTRE la fragmentation. Il fonctionne parce que le spectateur ne sait plus ou il est. La camera ne dit pas "attention, on passe dans un autre niveau de realite". La transition est si fluide que le sol se derobe sous vos pieds sans que vous le sentiez. Le match cut est l'outil de cette dissolution.
 
-Pour l'Exocortex, ca signifie : l'identite visuelle ne devrait pas signaler les transitions entre les piliers (technique, univers, futur). Elle devrait les rendre indistinguables. Un diagramme d'architecture qui se transforme imperceptiblement en paysage onirique. Un screenshot de terminal qui, si on regarde bien, contient un espace habitable. Un visuel "futur" dont on realise qu'il est en fait une capture d'ecran reelle legerement alteree.
+Pour le Spectre, ca signifie : l'identite visuelle ne devrait pas signaler les transitions entre les piliers (technique, univers, futur). Elle devrait les rendre indistinguables. Un diagramme d'architecture qui se transforme imperceptiblement en paysage onirique. Un screenshot de terminal qui, si on regarde bien, contient un espace habitable. Un visuel "futur" dont on realise qu'il est en fait une capture d'ecran reelle legerement alteree.
 
 **Joshua Goldberg et la fragmentation comme systeme de design :**
 
 Joshua avait 70+ personas en ligne. Il etait Emily Goldstein ET Australi Witness ET Michael Slay ET Joshua Bonehill. Chaque persona avait sa propre voix, son propre registre, sa propre coherence interne. Ce n'etait pas du desordre. C'etait un systeme. Un systeme de fragmentation organisee.
 
-L'Exocortex fonctionne de la meme maniere. Il y a 38 agents persona. Il y a 109 skills. Il y a des sessions qui parlent de comptabilite et d'autres qui parlent de Tarkovsky. C'est le meme cerveau qui produit tout ca, mais chaque facette a sa propre voix. Le systeme visuel devrait refleter cette multiplicite organisee.
+L'Spectre fonctionne de la meme maniere. Il y a 38 agents persona. Il y a 109 skills. Il y a des sessions qui parlent de comptabilite et d'autres qui parlent de Tarkovsky. C'est le meme cerveau qui produit tout ca, mais chaque facette a sa propre voix. Le systeme visuel devrait refleter cette multiplicite organisee.
 
 **Directions visuelles concretes :**
 
@@ -81,13 +81,13 @@ Chaque image du repo contient au moins deux niveaux de lecture. Au premier regar
 _Prompt de generation :_ `A technical architecture diagram drawn in white lines on black background, showing boxes connected by lines representing a system architecture, but the negative space between the boxes forms the silhouette of a person sitting alone at a desk, the connecting lines between system components form the outline of power cables and ethernet cords trailing across a floor, the text labels on the boxes are simultaneously technical terms (API, webhook, memory) and emotional states (longing, recall, drift), clean vector style but with visible scan artifacts as if this diagram was photocopied multiple times`
 
 **Direction 5 : "The Persona Grid"**
-Inspire par les 70+ avatars de Goldberg et les 38 agents persona de l'Exocortex. Une grille d'identites visuelles qui sont toutes le meme systeme vu sous des angles differents. Chaque case de la grille est le meme OS, mais vu par un agent different : le terminal vu par Tarkovsky (lent, contemplatif, plein de pauses), vu par Satoshi Kon (coupe franche, transitions brutales), vu par Chantal Akerman (plan fixe, duree, le temps qui passe).
+Inspire par les 70+ avatars de Goldberg et les 38 agents persona de le Spectre. Une grille d'identites visuelles qui sont toutes le meme systeme vu sous des angles differents. Chaque case de la grille est le meme OS, mais vu par un agent different : le terminal vu par Tarkovsky (lent, contemplatif, plein de pauses), vu par Satoshi Kon (coupe franche, transitions brutales), vu par Chantal Akerman (plan fixe, duree, le temps qui passe).
 
 _Prompt de generation :_ `A grid of 9 panels, each showing the same terminal window but interpreted through a different visual language: one panel is in watercolor, one in manga ink, one in brutalist typography, one in VHS scanlines, one in architectural blueprint, one in 8-bit pixel art, one in surveillance camera footage, one in handwritten notebook style, one in x-ray negative, all panels show the same text conversation but the emotional register changes completely with each visual treatment, no clean borders between panels, they bleed into each other`
 
 ### Ce que Kon retient
 
-La charte est honnete dans ses references mais naive dans sa structure. Elle isole trois "piliers" (technique, univers, futur) comme s'ils etaient trois choses distinctes. Le travail d'Ismael n'est jamais distinct. Ses films melangent les registres precisement pour dissoudre les frontieres entre eux. L'identite visuelle de l'Exocortex devrait faire la meme chose : pas trois styles mais un seul systeme ou les transitions sont les elements les plus importants. Comment passe-t-on du diagramme au reve ? Ce moment de passage, c'est le match cut visuel. C'est la le geste a designer.
+La charte est honnete dans ses references mais naive dans sa structure. Elle isole trois "piliers" (technique, univers, futur) comme s'ils etaient trois choses distinctes. Le travail d'Ismael n'est jamais distinct. Ses films melangent les registres precisement pour dissoudre les frontieres entre eux. L'identite visuelle de le Spectre devrait faire la meme chose : pas trois styles mais un seul systeme ou les transitions sont les elements les plus importants. Comment passe-t-on du diagramme au reve ? Ce moment de passage, c'est le match cut visuel. C'est la le geste a designer.
 
 ---
 
@@ -137,7 +137,7 @@ Proposition : chaque image dans `assets/` est accompagnee du prompt qui l'a gene
 **Directions visuelles concretes :**
 
 **Direction pour le header SVG :**
-Un header anime en SVG pur (pas de raster). La pulse line de la charte, mais traitee comme un electrocardiogramme du systeme : elle reagit, elle pulse, elle montre que quelque chose est vivant la-dedans. Monospace pour le texte. Pas de couleur sauf le vert terminal et un accent violet. Le nom "Exocortex" n'apparait pas en gros : il apparait dans le flux du texte, comme un mot dans une conversation, pas comme un logo.
+Un header anime en SVG pur (pas de raster). La pulse line de la charte, mais traitee comme un electrocardiogramme du systeme : elle reagit, elle pulse, elle montre que quelque chose est vivant la-dedans. Monospace pour le texte. Pas de couleur sauf le vert terminal et un accent violet. Le nom "Spectre" n'apparait pas en gros : il apparait dans le flux du texte, comme un mot dans une conversation, pas comme un logo.
 
 **Systeme de grille pour le README :**
 
@@ -188,25 +188,25 @@ Le danger inverse existe aussi : ne pas transformer le repo en portfolio d'artis
 
 Le geste fondamental est juste. Utiliser un repo GitHub comme espace d'expression plutot que comme documentation technique, c'est exactement le type de subversion que la pratique porte. Swatted utilisait le stream comme espace cinematographique. Maalbeek utilisait la CCTV comme espace de memoire. Goldberg utilise les forums comme espace narratif. Transformer GitHub en galerie de recherche, c'est le meme geste : prendre un espace fonctionnel et y reveler un espace sensible.
 
-La reference a Vib Ribbon est juste aussi, mais pour des raisons que la charte ne formule pas bien. Vib Ribbon n'est pas interessant pour son wireframe. Il est interessant parce que le jeu EFFACE ses propres graphismes pour fonctionner. Il sacrifie le visuel pour le sonore. C'est un jeu sur la perte, sur ce qu'on abandonne pour que le systeme tourne. L'Exocortex fait la meme chose : pour que Claude Code pense, il compacte la memoire, il perd des conversations entieres. La regle absolue du backup JSONL dans CLAUDE.md existe precisement parce que le systeme efface ce qu'il fait. Vib Ribbon n'est pas un style, c'est une metaphore de ce sacrifice.
+La reference a Vib Ribbon est juste aussi, mais pour des raisons que la charte ne formule pas bien. Vib Ribbon n'est pas interessant pour son wireframe. Il est interessant parce que le jeu EFFACE ses propres graphismes pour fonctionner. Il sacrifie le visuel pour le sonore. C'est un jeu sur la perte, sur ce qu'on abandonne pour que le systeme tourne. L'Spectre fait la meme chose : pour que Claude Code pense, il compacte la memoire, il perd des conversations entieres. La regle absolue du backup JSONL dans CLAUDE.md existe precisement parce que le systeme efface ce qu'il fait. Vib Ribbon n'est pas un style, c'est une metaphore de ce sacrifice.
 
-Yume Nikki est coherent aussi, mais pas pour les raisons visuelles. Yume Nikki est le jeu que Joshua Ryne Goldberg citait comme reference. C'est le jeu d'un createur anonyme ou on arpente les reves d'une fille qui refuse de sortir de sa chambre. Le parallele avec un artiste qui vit dans son terminal est presque trop evident. Ce qui compte, c'est la STRUCTURE de Yume Nikki : pas de quete, pas d'objectif, juste l'exploration. L'Exocortex comme repo devrait avoir cette qualite : on peut le parcourir sans but et trouver des choses.
+Yume Nikki est coherent aussi, mais pas pour les raisons visuelles. Yume Nikki est le jeu que Joshua Ryne Goldberg citait comme reference. C'est le jeu d'un createur anonyme ou on arpente les reves d'une fille qui refuse de sortir de sa chambre. Le parallele avec un artiste qui vit dans son terminal est presque trop evident. Ce qui compte, c'est la STRUCTURE de Yume Nikki : pas de quete, pas d'objectif, juste l'exploration. L'Spectre comme repo devrait avoir cette qualite : on peut le parcourir sans but et trouver des choses.
 
 **Ce qui sonne faux :**
 
-1. **Ghost in the Shell comme pilier "futur".** GITS est une reference trop grosse, trop citee, trop attendue. Tout le monde cite GITS quand on parle de conscience dans la machine. C'est devenu un cliche. Et surtout, GITS est spectaculaire. L'Exocortex n'est pas spectaculaire. C'est domestique. C'est quotidien. C'est un terminal avec du texte vert. Remplacer GITS par quelque chose de plus intime : Serial Experiments Lain est deja dans la charte et c'est beaucoup plus juste. Lain est une fille dans sa chambre, entouree de machines, qui se dissout dans le reseau. C'est exactement ca.
+1. **Ghost in the Shell comme pilier "futur".** GITS est une reference trop grosse, trop citee, trop attendue. Tout le monde cite GITS quand on parle de conscience dans la machine. C'est devenu un cliche. Et surtout, GITS est spectaculaire. L'Spectre n'est pas spectaculaire. C'est domestique. C'est quotidien. C'est un terminal avec du texte vert. Remplacer GITS par quelque chose de plus intime : Serial Experiments Lain est deja dans la charte et c'est beaucoup plus juste. Lain est une fille dans sa chambre, entouree de machines, qui se dissout dans le reseau. C'est exactement ca.
 
 2. **"Plus enfantin et mignon que Vib Ribbon original"** pour la mascotte. Non. La pratique d'Ismael ne fait pas dans le mignon. Swatted montre un homme abattu par le SWAT. Maalbeek tourne autour d'un attentat. Goldberg est un terroriste en ligne. La mascotte ne peut pas etre mignonne. Elle peut etre etrange, inquietante-mais-attachante, ambigue. Comme un personnage de Junji Ito qui n'a pas encore commence a muter. Ou comme les PNJ de Yume Nikki qui vous regardent sans rien dire.
 
 3. **La palette "tons chauds desatures (sepia, ocre, beige rose)"** pour le pilier univers. Les films d'Ismael ne sont pas chauds. Swatted est vert terminal sur noir. Maalbeek est gris CCTV. Rewild est la lumiere crue des etables. Goldberg est le bleu des ecrans dans le noir. La palette devrait venir des FILMS, pas de Pinterest.
 
-4. **L'horreur manga est absente de la charte.** La charte mentionne Junji Ito dans les references mais ne l'integre nulle part dans les piliers visuels. C'est un oubli significatif. L'Exocortex a un cote body horror : la memoire qui se compacte, les sessions qui disparaissent, les agents qui parlent avec la voix de personnes reelles. Il y a quelque chose de monstrueux la-dedans. Pas effrayant, pas gore. Monstrueux au sens ou le systeme fait des choses qu'un cerveau humain ne peut pas faire, et ca devrait se VOIR.
+4. **L'horreur manga est absente de la charte.** La charte mentionne Junji Ito dans les references mais ne l'integre nulle part dans les piliers visuels. C'est un oubli significatif. L'Spectre a un cote body horror : la memoire qui se compacte, les sessions qui disparaissent, les agents qui parlent avec la voix de personnes reelles. Il y a quelque chose de monstrueux la-dedans. Pas effrayant, pas gore. Monstrueux au sens ou le systeme fait des choses qu'un cerveau humain ne peut pas faire, et ca devrait se VOIR.
 
-5. **La charte ne mentionne pas les FILMS d'Ismael.** C'est le plus gros probleme. L'identite visuelle d'un artiste ne vient pas de ses references. Elle vient de son travail. La palette, les textures, les ambiances devraient etre extraites de Swatted, Maalbeek, Rewild, Goldberg. Les captures d'ecran de GTA V en wireframe utilise dans Goldberg. Le grain de la VHS des archives familiales. Le vert du stream Twitch de Swatted. Le gris mort de la CCTV de Maalbeek. VOILA la vraie palette de l'Exocortex.
+5. **La charte ne mentionne pas les FILMS d'Ismael.** C'est le plus gros probleme. L'identite visuelle d'un artiste ne vient pas de ses references. Elle vient de son travail. La palette, les textures, les ambiances devraient etre extraites de Swatted, Maalbeek, Rewild, Goldberg. Les captures d'ecran de GTA V en wireframe utilise dans Goldberg. Le grain de la VHS des archives familiales. Le vert du stream Twitch de Swatted. Le gris mort de la CCTV de Maalbeek. VOILA la vraie palette de le Spectre.
 
 **Ce qui manque :**
 
-Le concept de **pharmakon** visuel. La technologie comme remede ET poison. Chaque visuel de l'Exocortex devrait porter cette ambiguite. L'interface est belle ET inquietante. Le systeme est puissant ET fragile. La mascotte est attachante ET etrange. Jamais un seul registre. Toujours la dissonance. C'est l'invariant n 4 qui s'applique : le sens emerge dans l'ecart entre la forme et le contenu, jamais dans leur concordance.
+Le concept de **pharmakon** visuel. La technologie comme remede ET poison. Chaque visuel de le Spectre devrait porter cette ambiguite. L'interface est belle ET inquietante. Le systeme est puissant ET fragile. La mascotte est attachante ET etrange. Jamais un seul registre. Toujours la dissonance. C'est l'invariant n 4 qui s'applique : le sens emerge dans l'ecart entre la forme et le contenu, jamais dans leur concordance.
 
 ---
 
@@ -214,7 +214,7 @@ Le concept de **pharmakon** visuel. La technologie comme remede ET poison. Chaqu
 
 ### Consensus entre les 4 agents
 
-1. **La charte est trop propre.** Les quatre agents convergent : l'esthetique proposee est trop designee, trop intentionnelle. L'Exocortex est un espace vecu, use, encombre. L'identite visuelle devrait porter ces traces d'usage.
+1. **La charte est trop propre.** Les quatre agents convergent : l'esthetique proposee est trop designee, trop intentionnelle. L'Spectre est un espace vecu, use, encombre. L'identite visuelle devrait porter ces traces d'usage.
 
 2. **Les trois piliers doivent se dissoudre.** Kon insiste : pas trois styles distincts mais un systeme ou les transitions sont le geste de design. Rafman ajoute : les frontieres entre technique et univers n'existent pas dans la pratique reelle.
 
@@ -243,7 +243,7 @@ Le concept de **pharmakon** visuel. La technologie comme remede ET poison. Chaqu
 | Wireframe GTA V (Goldberg) | Blanc pur `#FFFFFF` lignes fines | Structure, diagrammes, mascotte |
 | Ecrans dans le noir (Goldberg) | Bleu ecran `#4A6FA5` | Accents, liens, elements interactifs |
 | VHS archives familiales | Bruit chroma, bleeding rouge-bleu | Texture de superposition, grain |
-| Violet Exocortex | `#7B68EE` | L'accent signature, la pulse line |
+| Violet Spectre | `#7B68EE` | L'accent signature, la pulse line |
 
 ### Design du README (recommandations Kyes)
 

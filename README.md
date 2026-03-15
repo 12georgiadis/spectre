@@ -1,11 +1,12 @@
 <p align="center">
-  <img src="assets/mascot/flamingo-ps1-lofi-v2.png" alt="exocortex" width="320"/>
+  <img src="assets/mascot/flamingo-ps1-lofi-v2.png" alt="spectre" width="320"/>
 </p>
 
-<h1 align="center">exocortex</h1>
+<h1 align="center">Spectre</h1>
+<p align="center"><em>the ghost above the shell.</em></p>
 
 <p align="center">
-  <em>an intelligence layer that runs above your operating system.</em><br/>
+  <em>claude-code-workflow</em><br/>
   <em>by <a href="https://ismaeljoffroychandoutis.com">ismaël joffroy chandoutis</a>, filmmaker.</em>
 </p>
 
@@ -41,7 +42,7 @@ everything here emerged from practice. daily sessions since january 2026, making
 
 > 70+ personas. one identity. the pharmakon of distributed cognition.
 
-the exocortex hosts 38 agent personas. filmmakers and thinkers summoned as creative voices: tarkovsky, akerman, lynch, duras, foucault, haraway. each one a distinct lens for a specific phase of work. the system fragments thought to reassemble it differently. not augmentation. alteration. the work becomes something you could not have done alone, not because the machine is faster, but because the machine is other.
+spectre hosts 38 agent personas. filmmakers and thinkers summoned as creative voices: tarkovsky, akerman, lynch, duras, foucault, haraway. each one a distinct lens for a specific phase of work. the system fragments thought to reassemble it differently. not augmentation. alteration. the work becomes something you could not have done alone, not because the machine is faster, but because the machine is other.
 
 this is the same gesture as joshua goldberg's 70+ online identities. the same multiplicity, turned inward. the monstrous and the generative are the same thing.
 
