@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline Bible — The Goldberg Variations</title>
+<link href="https://fonts.googleapis.com/css2?family=Fragment+Mono:wght@400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+:root {
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'Fragment Mono', 'SF Mono', Consolas, monospace;
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --surface2: #1a1a28;
+  --surface-elevated: #1e1e30;
+  --border: rgba(255,255,255,0.06);
+  --border-bright: rgba(255,255,255,0.14);
+  --text: #e8e8f0;
+  --text-dim: #6e6e88;
+  --accent: #ff6b35;
+  --accent-dim: rgba(255,107,53,0.12);
+  --teal: #0cd4a8;
+  --teal-dim: rgba(12,212,168,0.12);
+  --gold: #ffd700;
+  --gold-dim: rgba(255,215,0,0.10);
+  --rose: #ff3366;
+  --rose-dim: rgba(255,51,102,0.10);
+  --blue: #4488ff;
+  --blue-dim: rgba(68,136,255,0.10);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  background-image:
+    radial-gradient(ellipse at 20% 0%, var(--accent-dim) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, var(--teal-dim) 0%, transparent 50%),
+    repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(255,255,255,0.01) 60px, rgba(255,255,255,0.01) 61px);
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10,10,15,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 2rem;
+  display: flex; gap: 1rem; overflow-x: auto;
+  font-family: var(--font-mono); font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+nav a { color: var(--text-dim); text-decoration: none; white-space: nowrap; transition: color 0.2s; }
+nav a:hover { color: var(--accent); }
+
+.hero {
+  min-height: 70vh; display: flex; flex-direction: column; justify-content: center;
+  padding: 6rem 2rem 4rem; max-width: 1200px; margin: 0 auto;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700;
+  line-height: 1.05; letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero .subtitle { font-family: var(--font-mono); color: var(--text-dim); font-size: 0.9rem; margin-top: 1rem; }
+.hero .stats {
+  display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;
+}
+.hero .stat { text-align: center; }
+.hero .stat-num { font-size: 2.2rem; font-weight: 700; color: var(--accent); }
+.hero .stat-label { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; }
+
+section { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+section h2 {
+  font-size: 1.8rem; font-weight: 600; margin-bottom: 0.3rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+section h2 .num {
+  font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent);
+  border: 1px solid var(--accent); border-radius: 4px;
+  padding: 0.15rem 0.5rem; letter-spacing: 0.05em;
+}
+section .desc { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 2rem; font-family: var(--font-mono); }
+
+.ve-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 1.5rem; margin-bottom: 1rem;
+  animation: fadeUp 0.5s ease-out both;
+  animation-delay: calc(var(--i, 0) * 0.08s);
+}
+.ve-card--hero { background: var(--surface-elevated); border-color: var(--border-bright); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
+.ve-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.ve-card p { color: var(--text-dim); font-size: 0.85rem; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+th { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); text-align: left; padding: 0.8rem; border-bottom: 2px solid var(--border-bright); }
+td { padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--border); }
+tr:hover td { background: var(--accent-dim); }
+.badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 3px; font-family: var(--font-mono); font-size: 0.65rem; font-weight: 500; }
+.badge--ok { background: rgba(12,212,168,0.15); color: var(--teal); }
+.badge--warn { background: var(--gold-dim); color: var(--gold); }
+.badge--fail { background: var(--rose-dim); color: var(--rose); }
+.badge--info { background: var(--blue-dim); color: var(--blue); }
+
+.mermaid-wrap { display: flex; justify-content: center; margin: 2rem 0; overflow-x: auto; }
+
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before { content: ''; position: absolute; left: 0.5rem; top: 0; bottom: 0; width: 2px; background: var(--border-bright); }
+.timeline-item { position: relative; margin-bottom: 1.5rem; padding-left: 1.5rem; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -1.65rem; top: 0.5rem;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--bg);
+}
+.timeline-item .date { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); text-transform: uppercase; }
+.timeline-item .event { font-size: 0.85rem; }
+
+.quote { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 1.5rem 0; background: var(--accent-dim); border-radius: 0 6px 6px 0; font-style: italic; }
+.quote cite { display: block; margin-top: 0.5rem; font-style: normal; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim); }
+
+code { font-family: var(--font-mono); font-size: 0.8rem; background: var(--surface2); padding: 0.1rem 0.4rem; border-radius: 3px; }
+
+footer { text-align: center; padding: 3rem 2rem; font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-dim); border-top: 1px solid var(--border); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .ve-card { animation: none; } }
+@media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } nav { padding: 0.5rem 1rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#pipeline">Pipeline</a>
+  <a href="#machines">Machines</a>
+  <a href="#tools">Outils</a>
+  <a href="#bitdepth">32-bit</a>
+  <a href="#aces">ACES</a>
+  <a href="#studios">Studios</a>
+  <a href="#timeline">Timeline IA</a>
+  <a href="#training">Training IA</a>
+  <a href="#position">Positionnement</a>
+</nav>
+
+<div class="hero">
+  <h1>Pipeline Bible</h1>
+  <div class="subtitle">The Goldberg Variations — Pipeline Technique VFX/IA/Cinema</div>
+  <div class="subtitle">14 rapports de recherche. 248K caracteres. Couverture mondiale.</div>
+  <div class="stats">
+    <div class="stat"><div class="stat-num">14</div><div class="stat-label">Rapports</div></div>
+    <div class="stat"><div class="stat-num">248K</div><div class="stat-label">Caracteres</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Machines</div></div>
+    <div class="stat"><div class="stat-num">1024</div><div class="stat-label">Clips rushes</div></div>
+    <div class="stat"><div class="stat-num">77h</div><div class="stat-label">De matériau</div></div>
+    <div class="stat"><div class="stat-num">19j</div><div class="stat-label">Avant deadline</div></div>
+  </div>
+</div>
+
+<!-- SECTION 1: PIPELINE COMPLET -->
+<section id="pipeline">
+  <h2><span class="num">01</span> Pipeline Complet</h2>
+  <div class="desc">BRAW 6K → Color Grade → Training IA → Generation → Finish → DCP</div>
+  <div class="mermaid-wrap">
+    <pre class="mermaid">
+    flowchart TD
+      A["BMPCC 6K Pro\nBRAW 12-bit"] -->|debayer| B["DaVinci Resolve Studio\nACES IDT BMD Film Gen5"]
+      B -->|"HEVC 4K proxy"| C["ffmpeg\nsignalstats + normalize"]
+      C -->|"correction auto"| D["LUT de travail\nCYANFROID / Technicolor"]
+      D -->|"lut3d + lut-analyzer.py"| E{"Validation\nCIE Lab / Delta E / I-line"}
+      E -->|OK| F["smart-photogrammes.py\nMeilleur frame par plan"]
+      E -->|Corriger| C
+      F -->|"PNG 8-bit sRGB"| G["Training LoRA\nFlux 2 / LTX-2"]
+      F -->|"EXR 32-bit"| H["ComfyUI\nRadiance + SAM2"]
+      G -->|LoRA .safetensors| H
+      H -->|"inpaint / outpaint\ndeepfakes personas"| I["ColorMatch\nVAE Color Corrector"]
+      I -->|"EXR 32-bit"| J["DaVinci Resolve\nGrade final"]
+      J -->|DCP JPEG2000 XYZ| K["PROJECTION\nCannes / Festivals"]
+      J -->|"IMF SMPTE ST 2067"| L["STREAMING\nNetflix / ARTE"]
+      J -->|"DCDM / TIFF 16-bit"| M["ARCHIVE\nBFI / CNC"]
+
+      B -->|"EXR 32-bit linear"| N["Blender 5.0\nACES 2.0 / Compositor"]
+      N -->|"compositing VFX"| H
+
+      style A fill:#1a1a28,stroke:#ff6b35,color:#e8e8f0
+      style B fill:#1a1a28,stroke:#0cd4a8,color:#e8e8f0
+      style H fill:#1a1a28,stroke:#ffd700,color:#e8e8f0
+      style J fill:#1a1a28,stroke:#0cd4a8,color:#e8e8f0
+      style K fill:#1e1e30,stroke:#ff3366,color:#e8e8f0
+      style L fill:#1e1e30,stroke:#4488ff,color:#e8e8f0
+    </pre>
+  </div>
+</section>
+
+<!-- SECTION 2: ARCHITECTURE SPECTRE -->
+<section id="machines">
+  <h2><span class="num">02</span> Architecture Spectre — Multi-Machines</h2>
+  <div class="desc">5 machines, 1 intelligence, 0 GUI dependency</div>
+  <div class="grid-2">
+    <div class="ve-card ve-card--hero" style="--i:0; border-left: 3px solid var(--accent)">
+      <h3>MacBook Air M3</h3>
+      <p>100.118.137.41 — <span class="badge badge--ok">Orchestrateur</span></p>
+      <p>16 GB RAM · 158 GB libre · WiFi 6E</p>
+      <p>Claude Code principal · ffmpeg · Python OCIO · LUT Analyzer</p>
+    </div>
+    <div class="ve-card" style="--i:1; border-left: 3px solid var(--teal)">
+      <h3>Mac Mini M4</h3>
+      <p>100.84.223.88 — <span class="badge badge--ok">Analytics</span></p>
+      <p>16 GB RAM · Paris · Resolve · Claude Code</p>
+      <p>Nightly pipelines · Heartbeat · Transcription</p>
+    </div>
+    <div class="ve-card ve-card--hero" style="--i:2; border-left: 3px solid var(--gold)">
+      <h3>PC Nomad — RTX 5090</h3>
+      <p>100.82.222.123 — <span class="badge badge--ok">GPU Primary</span></p>
+      <p>94 GB RAM · 32 GB VRAM · 6.2 TB libre</p>
+      <p>ComfyUI + Radiance · Resolve · Ollama (9 modeles) · Claude Code</p>
+    </div>
+    <div class="ve-card ve-card--hero" style="--i:3; border-left: 3px solid var(--gold)">
+      <h3>PC Torrent — RTX 5090</h3>
+      <p>100.125.245.108 — <span class="badge badge--warn">Setup 90%</span></p>
+      <p>94 GB RAM · 32 GB VRAM · 7 TB libre · Paris</p>
+      <p>ComfyUI clone Nomad · Overflow GPU</p>
+    </div>
+    <div class="ve-card" style="--i:4; border-left: 3px solid var(--rose)">
+      <h3>PC BeQuiet — RTX 4090</h3>
+      <p>100.104.193.23 — <span class="badge badge--fail">SSH bloque</span></p>
+      <p>64 GB RAM · 24 GB VRAM · 4 TB SSD · Paris</p>
+      <p>faster-whisper GPU · Ollama 70B · Batch processing</p>
+    </div>
+    <div class="ve-card" style="--i:5; border-left: 3px solid var(--blue)">
+      <h3>NAS UGREEN DXP4800</h3>
+      <p>100.66.0.100 — <span class="badge badge--ok">Stockage</span></p>
+      <p>Paris · SMB · Backup central</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: COMPARATIF OUTILS -->
+<section id="tools">
+  <h2><span class="num">03</span> Comparatif Outils</h2>
+  <div class="desc">Chaque outil a son role. Aucun ne fait tout.</div>
+  <div class="ve-card" style="overflow-x: auto">
+    <table>
+      <thead><tr>
+        <th>Outil</th><th>Color Grade</th><th>32-bit float</th><th>ACES</th><th>BRAW</th><th>IA Gen</th><th>CLI/Script</th><th>Oscar?</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><strong>DaVinci Resolve Studio</strong></td><td><span class="badge badge--ok">Reference</span></td><td><span class="badge badge--ok">Oui</span></td><td><span class="badge badge--ok">2.0</span></td><td><span class="badge badge--ok">Natif</span></td><td><span class="badge badge--fail">Non</span></td><td><span class="badge badge--warn">Studio</span></td><td><span class="badge badge--ok">Oui</span></td></tr>
+        <tr><td><strong>Nuke (Foundry)</strong></td><td><span class="badge badge--ok">Pro</span></td><td><span class="badge badge--ok">Natif</span></td><td><span class="badge badge--ok">OCIO</span></td><td><span class="badge badge--fail">Non</span></td><td><span class="badge badge--warn">Copycat</span></td><td><span class="badge badge--ok">Python</span></td><td><span class="badge badge--ok">Oui</span></td></tr>
+        <tr><td><strong>Blender 5.0</strong></td><td><span class="badge badge--warn">Basique</span></td><td><span class="badge badge--ok">EXR</span></td><td><span class="badge badge--ok">2.0 natif</span></td><td><span class="badge badge--fail">Non</span></td><td><span class="badge badge--warn">Addons</span></td><td><span class="badge badge--ok">Python MCP</span></td><td><span class="badge badge--warn">Indie</span></td></tr>
+        <tr><td><strong>ComfyUI + Radiance</strong></td><td><span class="badge badge--warn">Experimental</span></td><td><span class="badge badge--warn">Partiel*</span></td><td><span class="badge badge--warn">Plugins</span></td><td><span class="badge badge--fail">Non</span></td><td><span class="badge badge--ok">Reference</span></td><td><span class="badge badge--ok">MCP + API</span></td><td><span class="badge badge--fail">Non</span></td></tr>
+        <tr><td><strong>ffmpeg + OCIO + colour-science</strong></td><td><span class="badge badge--warn">Batch</span></td><td><span class="badge badge--ok">Oui</span></td><td><span class="badge badge--ok">OCIO</span></td><td><span class="badge badge--fail">Non</span></td><td><span class="badge badge--fail">Non</span></td><td><span class="badge badge--ok">100% CLI</span></td><td><span class="badge badge--ok">Industrie</span></td></tr>
+        <tr><td><strong>Baselight (FilmLight)</strong></td><td><span class="badge badge--ok">Top DI</span></td><td><span class="badge badge--ok">Natif</span></td><td><span class="badge badge--ok">T-CAM</span></td><td><span class="badge badge--ok">Oui</span></td><td><span class="badge badge--fail">Non</span></td><td><span class="badge badge--fail">Non</span></td><td><span class="badge badge--ok">Oui</span></td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 0.8rem; font-size: 0.72rem; color: var(--text-dim);">* Radiance claims 32-bit but some nodes reduce to 8-bit internally (source: Alex Villabon VFX+AI)</p>
+  </div>
+</section>
+
+<!-- SECTION 4: 32-BIT FLOAT PROBLEM -->
+<section id="bitdepth">
+  <h2><span class="num">04</span> Le probleme 32-bit float dans ComfyUI</h2>
+  <div class="desc">4 goulots d'etranglement identifies dans le code source</div>
+  <div class="mermaid-wrap">
+    <pre class="mermaid">
+    flowchart LR
+      A["Image float32\n[0, inf)"] -->|"VAE Decode"| B["clamp_(0,1)\ncomfy/sd.py"]
+      B -->|"PIL convert"| C["uint8\n[0, 255]"]
+      C -->|"SaveImage"| D["PNG 8-bit\nDonnees perdues"]
+
+      E["Solution:\nHDR VAE Decode\n(netocg)"] -.->|bypass| B
+      F["Solution:\nACES-IO EXR\n(BISAM20)"] -.->|bypass| C
+      G["Solution:\nHQ-Image-Save\n(spacepxl)"] -.->|bypass| D
+
+      style B fill:#331111,stroke:#ff3366,color:#e8e8f0
+      style C fill:#331111,stroke:#ff3366,color:#e8e8f0
+      style D fill:#331111,stroke:#ff3366,color:#e8e8f0
+      style E fill:#112211,stroke:#0cd4a8,color:#e8e8f0
+      style F fill:#112211,stroke:#0cd4a8,color:#e8e8f0
+      style G fill:#112211,stroke:#0cd4a8,color:#e8e8f0
+    </pre>
+  </div>
+  <div class="grid-2">
+    <div class="ve-card" style="--i:0">
+      <h3 style="color: var(--rose)">Goulot 1 : VAE Decode</h3>
+      <p><code>image.add_(1.0).div_(2.0).clamp_(0.0, 1.0)</code></p>
+      <p>Destruction irreversible des valeurs HDR > 1.0</p>
+    </div>
+    <div class="ve-card" style="--i:1">
+      <h3 style="color: var(--rose)">Goulot 2 : PIL</h3>
+      <p>PIL.Image ouvre en <code>uint8</code> par defaut. Toute operation PIL tronque a 8-bit.</p>
+    </div>
+    <div class="ve-card" style="--i:2">
+      <h3 style="color: var(--rose)">Goulot 3 : SaveImage</h3>
+      <p><code>np.clip(i, 0, 255).astype(np.uint8)</code> — double destruction.</p>
+    </div>
+    <div class="ve-card" style="--i:3">
+      <h3 style="color: var(--rose)">Goulot 4 : fp16 VAE</h3>
+      <p>SDXL VAE en fp16 genere des NaN. Fix: <code>madebyollin/sdxl-vae-fp16-fix</code></p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: ACES PIPELINE -->
+<section id="aces">
+  <h2><span class="num">05</span> Pipeline ACES End-to-End</h2>
+  <div class="desc">Le standard de l'industrie cinema. ACES 2.0 (dec 2025) unifie RRT+ODT.</div>
+  <div class="mermaid-wrap">
+    <pre class="mermaid">
+    flowchart TD
+      CAM["Camera\nBMPCC 6K Pro\nBMD Film Gen 5"] -->|IDT| WS["Working Space\nACEScg (AP1, linear)"]
+      WS -->|grade| GR["Grading Space\nACEScct (log + toe)"]
+      GR -->|look| LK["Look Transform\nLUT creative"]
+      LK -->|"Output Transform\n(ACES 2.0 DRT)"| SDR["SDR\nRec.709"]
+      LK -->|"Output Transform"| HDR["HDR\nDolby Vision / PQ"]
+      LK -->|"Output Transform"| DCI["DCI-P3\nProjection cinema"]
+      WS -->|archive| ARC["ACES2065-1\nAP0 linear\nArchivage long terme"]
+
+      style CAM fill:#1a1a28,stroke:#ff6b35,color:#e8e8f0
+      style WS fill:#1a1a28,stroke:#0cd4a8,color:#e8e8f0
+      style GR fill:#1a1a28,stroke:#ffd700,color:#e8e8f0
+      style ARC fill:#1a1a28,stroke:#4488ff,color:#e8e8f0
+    </pre>
+  </div>
+  <div class="ve-card">
+    <table>
+      <thead><tr><th>Color Space</th><th>Encodage</th><th>Primaires</th><th>Usage</th></tr></thead>
+      <tbody>
+        <tr><td><code>ACES2065-1</code></td><td>Lineaire</td><td>AP0</td><td>Archivage, echange</td></tr>
+        <tr><td><code>ACEScg</code></td><td>Lineaire</td><td>AP1</td><td><strong>Working space VFX/CG</strong></td></tr>
+        <tr><td><code>ACEScct</code></td><td>Log + toe</td><td>AP1</td><td>Grading (toe Cineon)</td></tr>
+        <tr><td><code>ACEScc</code></td><td>Logarithmique</td><td>AP1</td><td>Grading legacy</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 6: STUDIOS WORLDWIDE -->
+<section id="studios">
+  <h2><span class="num">06</span> Cartographie Mondiale</h2>
+  <div class="desc">Qui fait quoi, ou, avec quels outils.</div>
+  <div class="grid-3">
+    <div class="ve-card" style="--i:0; border-top: 3px solid var(--accent)">
+      <h3>Hollywood / VFX Oscar</h3>
+      <p><strong>ILM</strong> : Zeno + Helios + StageCraft. ACES 2.0 sur Transformers One.</p>
+      <p><strong>Weta FX</strong> : Manuka (spectral). PhysLight (scene-referred). Avatar 1.25Mrd heures render.</p>
+      <p><strong>DNEG/Brahma</strong> : $1.4B valorisation. Metaphysic (de-aging Tom Hanks). Custom AI.</p>
+      <p><strong>Framestore</strong> : 99% Python. ACES pionniers (Kevin Wheatley).</p>
+    </div>
+    <div class="ve-card" style="--i:1; border-top: 3px solid var(--teal)">
+      <h3>SF / LA Labs</h3>
+      <p><strong>Runway</strong> : Gen-4.5, $3B. Lionsgate custom model.</p>
+      <p><strong>Luma AI</strong> : Ray3 = premier HDR natif ACES2065-1 EXR.</p>
+      <p><strong>Sora</strong> : <span class="badge badge--fail">MORT</span> (24 mars 2026).</p>
+      <p><strong>fal.ai</strong> : 400M$ revenus, 50M+ creations/jour. Infra invisible.</p>
+      <p><strong>Black Forest Labs</strong> : FLUX.2 32B. Adobe + Microsoft.</p>
+    </div>
+    <div class="ve-card" style="--i:2; border-top: 3px solid var(--gold)">
+      <h3>Chine</h3>
+      <p><strong>DAWA Yongchuan</strong> : 1Mrd RMB. Bi Gan Cannes. DeepSeek integre.</p>
+      <p><strong>Kling 3.0</strong> (Kuaishou) : director memory, +1667% vs Runway.</p>
+      <p><strong>Wan 2.6</strong> (Alibaba) : open source Apache 2.0, ComfyUI day-zero.</p>
+      <p><strong>TurboDiffusion</strong> : 100-200x acceleration. "DeepSeek Moment" video.</p>
+      <p>Premier LM 100% AIGC : <em>The Reunion Journey</em> (94 min).</p>
+    </div>
+    <div class="ve-card" style="--i:3; border-top: 3px solid var(--blue)">
+      <h3>Animation</h3>
+      <p><strong>Pixar</strong> : USD backbone. OpenColorIO createur. RenderMan.</p>
+      <p><strong>Sony/SPI</strong> : Spider-Verse (ML ink lines). OpenColorIO createur.</p>
+      <p><strong>Blender Studio</strong> : 100% open source. Documentation publique totale.</p>
+      <p><strong>DreamWorks</strong> : MoonRay (open source). Puss in Boots stylisation.</p>
+    </div>
+    <div class="ve-card" style="--i:4; border-top: 3px solid var(--rose)">
+      <h3>Europe / Institutions</h3>
+      <p><strong>Villa Albertine</strong> : "Arts in the Age of AI". Jury: Refik Anadol.</p>
+      <p><strong>Le Fresnoy</strong> : Panorama 26/27. Justine Emard, Chatonsky.</p>
+      <p><strong>Jeu de Paume</strong> : "Le Monde selon l'IA" (30+ artistes).</p>
+      <p><strong>Ars Electronica</strong> : 25% IA generative. Paul Trillo AI in ART Award.</p>
+    </div>
+    <div class="ve-card" style="--i:5; border-top: 3px solid var(--accent)">
+      <h3>Pionniers ComfyUI x VFX</h3>
+      <p><strong>Doug Hogan</strong> (20 ans, Space Jam) : ActionVFX cours, Nuke MCP.</p>
+      <p><strong>Victor Perez</strong> (28 ans Hollywood) : ComfyUI x NUKE.</p>
+      <p><strong>Eran Dinur</strong> (Emmy, Hereditary, Wolf of Wall Street) : fxphd.</p>
+      <p><strong>Xtevision</strong> : plugin Flame↔ComfyUI EXR roundtrip.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: TIMELINE IA CINEMA -->
+<section id="timeline">
+  <h2><span class="num">07</span> Timeline IA x Cinema</h2>
+  <div class="desc">De la recherche aux Oscars.</div>
+  <div class="timeline">
+    <div class="timeline-item" style="--i:0"><div class="date">2020</div><div class="event"><strong>Welcome to Chechnya</strong> (HBO) — premiers deepfakes ethiques documentaire. David France invente le "face veil".</div></div>
+    <div class="timeline-item" style="--i:1"><div class="date">2022</div><div class="event"><strong>Unsupervised</strong> (Refik Anadol, MoMA) — hallucinations machine sur 180K oeuvres. Debut art IA institutionnel.</div></div>
+    <div class="timeline-item" style="--i:2"><div class="date">2024 Jan</div><div class="event"><strong>Eno</strong> (Gary Hustwit, Sundance) — documentaire generatif, 52 quintillions de versions. Shortliste Oscars.</div></div>
+    <div class="timeline-item" style="--i:3"><div class="date">2024 Sep</div><div class="event"><strong>The Brutalist</strong> (Venice, Grand Prix) — Respeecher pour accents. Controverse transparence IA aux Oscars.</div></div>
+    <div class="timeline-item" style="--i:4"><div class="date">2025 Avr</div><div class="event"><strong>El Eternauta</strong> (Netflix) — premier "final pixel" IA dans une serie majeure. Eyeline Studios/Scanline VFX.</div></div>
+    <div class="timeline-item" style="--i:5"><div class="date">2025 Dec</div><div class="event"><strong>ACES 2.0</strong> publie. <strong>Disney + OpenAI</strong> : $1B. <strong>DNEG/Brahma</strong> acquiert Metaphysic ($1.4B).</div></div>
+    <div class="timeline-item" style="--i:6"><div class="date">2026 Jan</div><div class="event"><strong>Bi Gan / Resurrection</strong> (DAWA Studio) — Prix Special Cannes 78e. 30% LED VP + IA.</div></div>
+    <div class="timeline-item" style="--i:7"><div class="date">2026 Fev</div><div class="event"><strong>The Reunion Journey</strong> — premier LM 100% AIGC (Chine, 94 min). <strong>Kling 3.0</strong>, <strong>Seedance 2.0</strong>.</div></div>
+    <div class="timeline-item" style="--i:8"><div class="date">2026 Mar 24</div><div class="event"><strong>Sora ferme</strong>. Disney retire $1B. Redistribution vers Veo, Runway, open source.</div></div>
+    <div class="timeline-item" style="--i:9"><div class="date">2026 Mar 25</div><div class="event"><strong>The Goldberg Variations</strong> — pipeline Spectre operationnel. 14 rapports, 5 machines, liquid writing.</div></div>
+  </div>
+</section>
+
+<!-- SECTION 8: TRAINING IA -->
+<section id="training">
+  <h2><span class="num">08</span> Training IA depuis les rushes</h2>
+  <div class="desc">Regles absolues pour preparer les photogrammes.</div>
+  <div class="grid-2">
+    <div class="ve-card ve-card--hero" style="--i:0">
+      <h3 style="color: var(--teal)">Format d'entree</h3>
+      <table>
+        <tr><td>LoRA (kohya/ai-toolkit)</td><td><span class="badge badge--ok">PNG 8-bit</span> <span class="badge badge--ok">JPEG</span></td></tr>
+        <tr><td>Flux 2</td><td><span class="badge badge--ok">PNG 8-bit sRGB</span></td></tr>
+        <tr><td>LTX-Video 2</td><td><span class="badge badge--ok">MP4 H.264/H.265</span></td></tr>
+        <tr><td>EXR 32-bit</td><td><span class="badge badge--fail">Non supporte</span></td></tr>
+        <tr><td>Log / Raw</td><td><span class="badge badge--fail">Jamais</span></td></tr>
+      </table>
+    </div>
+    <div class="ve-card" style="--i:1">
+      <h3 style="color: var(--gold)">Regle d'or</h3>
+      <p>Etalonnage <strong>technique</strong> (Rec.709, expo corrigee, balance des blancs). Pas de LUT creative sauf si c'est le but explicite du LoRA. <strong>Jamais de Log/raw</strong> — le VAE ne sait pas decoder du lineaire.</p>
+      <div class="quote">
+        "Le footage Log est volontairement plat, faible saturation. Entrainer la-dessus apprend au modele a produire des images grises et delavees."
+        <cite>— AI Training Pipeline Research, mars 2026</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: POSITIONNEMENT -->
+<section id="position">
+  <h2><span class="num">09</span> Positionnement Unique</h2>
+  <div class="desc">Liquid writing : un concept original, confirme par la recherche.</div>
+  <div class="ve-card ve-card--hero" style="border-left: 3px solid var(--accent)">
+    <h3>Le terme "liquid writing" en tant que methodologie nommee n'apparait PAS dans la litterature.</h3>
+    <p>C'est un concept original. La fusion SIMULTANEE de l'ecriture, du tournage, du montage et de l'IA dans un meme geste creatif, appliquee a un documentaire d'auteur.</p>
+  </div>
+  <div class="grid-3">
+    <div class="ve-card" style="--i:0">
+      <h3>Gary Hustwit (Eno)</h3>
+      <p>Montage generatif. Mais ecriture/tournage restent traditionnels. Le "liquide" est seulement au montage.</p>
+    </div>
+    <div class="ve-card" style="--i:1">
+      <h3>Pierre Huyghe (Camata)</h3>
+      <p>Film genere en temps reel par IA. Mais l'humain est absent du processus. Pas de "writing".</p>
+    </div>
+    <div class="ve-card" style="--i:2">
+      <h3>Gregory Chatonsky</h3>
+      <p>Autobiographie generative, flux infini. Proche en esprit mais c'est une installation, pas un pipeline documentaire.</p>
+    </div>
+  </div>
+  <div class="quote" style="margin-top: 1.5rem">
+    Personne dans ce paysage ne combine : une formation d'ecole d'art (Le Fresnoy), un sujet documentaire ou l'IA EST le propos, un pipeline de production IA operationnel (Claude Code comme OS), une reflexion theorique nommee (liquid writing), et une reconnaissance festivaliere pre-IA (Cannes, Cesar, Venise).
+    <cite>— Pioneer AI Filmmakers Research, mars 2026</cite>
+  </div>
+</section>
+
+<footer>
+  Pipeline Bible — The Goldberg Variations — Ismael Joffroy Chandoutis<br>
+  14 rapports / 248K caracteres / 25 mars 2026 / Spectre v1.0<br>
+  Films Grand Huit · Villa Albertine 2026 · CNC Aide Selective VFX (depot juin 2026)
+</footer>
+
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#1a1a28',
+      primaryTextColor: '#e8e8f0',
+      primaryBorderColor: '#ff6b35',
+      lineColor: '#6e6e88',
+      secondaryColor: '#12121a',
+      tertiaryColor: '#1e1e30',
+      fontSize: '14px',
+      fontFamily: 'Fragment Mono, monospace'
+    }
+  });
+</script>
+</body>
+</html>
